@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<RegistryObjectList xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+  <Notification
+    id="urn:xdskit:com:c7ptmx37tfbcwy8ky7a"
+    subscription="urn:xdskit:com:c7ptmx37tfbcwy8ky7m">
+    <RegistryObjectList>
+      <ObjectRef id="urn:xdskit:com:c7ptmx37tfbcwy8ky7n"></ObjectRef>
+      <ObjectRef id="urn:xdskit:com:c7ptmx37tfbcwy8ky7p"></ObjectRef>
+    </RegistryObjectList>
+  </Notification>
+</RegistryObjectList>

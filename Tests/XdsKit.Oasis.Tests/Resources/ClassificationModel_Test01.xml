@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<RegistryObjectList xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+  <ClassificationScheme
+      lid="urn:xdskit:com:classificationScheme:CustomerType"
+      id="urn:xdskit:com:classificationScheme:CustomerType"
+      isInternal="true"
+      nodeType="urn:oasis:names:tc:ebxml-regrep:NodeType:UniqueCode">
+    <Name>
+      <LocalizedString charset="UTF-8" value="CustomerType"/>
+    </Name>
+    <Description>
+      <LocalizedString charset="UTF-8" value="This is the ClassificationScheme for XdsKit customer types"/>
+    </Description>
+    <ClassificationNode
+        lid="urn:xdskit:com:classificationScheme:CustomerType:NoviceCustomer"
+        code="NoviceCustomer"
+        id="urn:xdskit:com:classificationScheme:CustomerType:NoviceCustomer">
+      <Name>
+        <LocalizedString charset="UTF-8" value="NoviceCustomer"/>
+      </Name>
+      <Description>
+        <LocalizedString charset="UTF-8" value="This is customer is an XdsKit beginner."/>
+      </Description>
+    </ClassificationNode>
+    <ClassificationNode
+      lid="urn:xdskit:com:classificationScheme:CustomerType:CompetentCustomer"
+      code="CompetentCustomer"
+      id="urn:xdskit:com:classificationScheme:CustomerType:CompetentCustomer">
+      <Name>
+        <LocalizedString charset="UTF-8" value="CompetentCustomer"/>
+      </Name>
+      <Description>
+        <LocalizedString charset="UTF-8" value="This is customer is competent with XdsKit."/>
+      </Description>
+    </ClassificationNode>
+    <ClassificationNode
+      lid="urn:xdskit:com:classificationScheme:CustomerType:ProficientCustomer"
+      code="ProficientCustomer"
+      id="urn:xdskit:com:classificationScheme:CustomerType:ProficientCustomer">
+      <Name>
+        <LocalizedString charset="UTF-8" value="ProficientCustomer"/>
+      </Name>
+      <Description>
+        <LocalizedString charset="UTF-8" value="This is customer is proficient in all things XdsKit."/>
+      </Description>
+    </ClassificationNode>
+    <ClassificationNode
+      lid="urn:xdskit:com:classificationScheme:CustomerType:ExpertCustomer"
+      code="ExpertCustomer"
+      id="urn:xdskit:com:classificationScheme:CustomerType:ExpertCustomer">
+      <Name>
+        <LocalizedString charset="UTF-8" value="ExpertCustomer"/>
+      </Name>
+      <Description>
+        <LocalizedString charset="UTF-8" value="This is customer is an XdsKit expert."/>
+      </Description>
+    </ClassificationNode>
+    <ClassificationNode
+      lid="urn:xdskit:com:classificationScheme:CustomerType:Partner"
+      code="Partner"
+      id="urn:xdskit:com:classificationScheme:CustomerType:Partner">
+      <Name>
+        <LocalizedString charset="UTF-8" value="Partner"/>
+      </Name>
+      <Description>
+        <LocalizedString charset="UTF-8" value="This is customer is one of our XdsKit partners."/>
+      </Description>
+    </ClassificationNode>
+  </ClassificationScheme>
+
+
+  <Organization id="urn:xdskit:com:c7ptmx37tfbcwy8ky7n"
+                home="https://services.xdskit.com/organizations"
+                primaryContact="urn:xdskit:com:c7ptmx37tfbcwy8ky7a" />
+  <Organization id="urn:xdskit:com:c7ptmx37tfbcwy8ky7o" 
+                home="https://services.xdskit.com/organizations"
+                primaryContact="urn:xdskit:com:c7ptmx37tfbcwy8ky7b" />
+  <Organization id="urn:xdskit:com:c7ptmx37tfbcwy8ky7p" 
+                home="https://services.xdskit.com/organizations"
+                primaryContact="urn:xdskit:com:c7ptmx37tfbcwy8ky7c" />
+
+  <!-- internal classification -->
+  <Classification classificationScheme="urn:xdskit:com:classificationScheme:CustomerType" 
+                  classifiedObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7n"
+                  classificationNode="urn:xdskit:com:classificationScheme:CustomerType:NoviceCustomer" />
+  <Classification classificationScheme="urn:xdskit:com:classificationScheme:CustomerType" 
+                  classifiedObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7o"
+                  classificationNode="urn:xdskit:com:classificationScheme:CustomerType:Partner" />
+  <Classification classificationScheme="urn:xdskit:com:classificationScheme:CustomerType" 
+                  classifiedObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7p"
+                  classificationNode="urn:xdskit:com:classificationScheme:CustomerType:ExpertCustomer" />
+
+  <!-- external classification -->
+  <Classification classificationScheme="urn:xdskit:com:classificationScheme:PartnerRegion" 
+                  classifiedObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7o"
+                  nodeRepresentation="Northeast" />
+</RegistryObjectList>

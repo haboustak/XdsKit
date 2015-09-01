@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RegistryObjectList xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+  <!-- Content Cataloging Service for CPPA that is used for testing Content Cataloging Service support. -->
+  <Service lid="urn:freebxml:registry:demoDB:test:cms:ContentCatalogingService:cppaCataloging" id="urn:freebxml:registry:demoDB:test:cms:ContentCatalogingService:cppaCataloging">
+    <Slot name="providingOrganization">
+      <ValueList>
+        <Value>urn:freebxml:registry:Organization:freebXMLRegistry</Value>
+      </ValueList>
+    </Slot>
+    <Name>
+      <LocalizedString charset="UTF-8" value="Test CPPA Cataloging Service"/>
+    </Name>
+    <Description>
+      <LocalizedString charset="UTF-8" value="Content Cataloging Service for testing only."/>
+    </Description>
+    <!-- ContentManagementService classification -->
+    <Classification classificationNode="urn:oasis:names:tc:ebxml-regrep:ContentManagementService:ContentCatalogingService" classifiedObject="urn:freebxml:registry:demoDB:test:cms:ContentCatalogingService:cppaCataloging" id="urn:uuid:c94dbaae-2228-4c9e-bc3d-f1ab21020526">
+      <Name>
+        <LocalizedString charset="UTF-8" value="ContentCatalogingService"/>
+      </Name>
+    </Classification>
+    <!-- InvocationModel classification -->
+    <Classification classificationNode="urn:oasis:names:tc:ebxml-regrep:InvocationModel:Inline" classifiedObject="urn:freebxml:registry:demoDB:test:cms:ContentCatalogingService:cppaCataloging" id="urn:uuid:da83ceb4-0c2a-4ce7-9ebe-84d2c5e5148c">
+      <Name>
+        <LocalizedString charset="UTF-8" value="Inline"/>
+      </Name>
+    </Classification>
+    <!-- ErrorHandlingModel classification -->
+    <Classification classificationNode="urn:oasis:names:tc:ebxml-regrep:ErrorHandlingModel:FailOnError" classifiedObject="urn:freebxml:registry:demoDB:test:cms:ContentCatalogingService:cppaCataloging" id="urn:uuid:e28bb048-f60d-4f7f-8e14-f36b52ad6d59">
+      <Name>
+        <LocalizedString charset="UTF-8" value="FailOnError"/>
+      </Name>
+    </Classification>
+    <ServiceBinding accessURI="http://localhost:8080/CatalogingTestCPPACataloging/cppaCataloging" id="urn:uuid:f0b82158-e53e-4550-aeed-cdc7cb336ec4" service="urn:freebxml:registry:demoDB:test:cms:ContentCatalogingService:cppaCataloging">
+      <Name>
+        <LocalizedString charset="UTF-8" value="'cppaCataloging' Content Cataloging Service binding"/>
+      </Name>
+      <Description>
+        <LocalizedString charset="UTF-8" value="Service Binding to 'cppaCataloging' Content Cataloging Service"/>
+      </Description>
+      <SpecificationLink id="urn:uuid:85617561-9f98-4a38-9721-a9c2745a3aed" serviceBinding="urn:uuid:f0b82158-e53e-4550-aeed-cdc7cb336ec4" specificationObject="urn:freebxml:registry:demoDB:test:cms:ExternalLink:cppaCataloging:homepage">
+        <UsageDescription>
+          <LocalizedString charset="UTF-8" value="Link to HTML page describing service"/>
+        </UsageDescription>
+        <UsageParameter>There are no usage parameters associated with this service.</UsageParameter>
+        <UsageParameter>There really are no usage parameters associated with this service.</UsageParameter>
+      </SpecificationLink>
+      <SpecificationLink id="urn:uuid:b2207021-0e0c-4cc5-b78a-9c2c2a1b0476" serviceBinding="urn:uuid:f0b82158-e53e-4550-aeed-cdc7cb336ec4" specificationObject="urn:freebxml:registry:demoDB:test:cms:ExternalLink:cppaCataloging:WSDL">
+        <UsageDescription>
+          <LocalizedString charset="UTF-8" value="Link to WSDL for service"/>
+        </UsageDescription>
+      </SpecificationLink>
+    </ServiceBinding>
+    <ServiceBinding targetBinding="urn:uuid:f0b82158-e53e-4550-aeed-cdc7cb336ec4" id="urn:uuid:fca0dd56-ab3b-457b-88bb-d4643f158ade" service="urn:freebxml:registry:demoDB:test:cms:ContentCatalogingService:cppaCataloging">
+      <Name>
+        <LocalizedString charset="UTF-8" value="Redirect to other 'cppaCataloging' Content Cataloging Service binding"/>
+      </Name>
+      <Description>
+        <LocalizedString charset="UTF-8" value="Service Binding with 'targetBinding' to other Service Binding of 'cppaCataloging' Content Cataloging Service"/>
+      </Description>
+    </ServiceBinding>
+  </Service>
+  <!-- OffersService association between service and Registry -->
+  <Association associationType="urn:oasis:names:tc:ebxml-regrep:AssociationType:OffersService" id="urn:uuid:c07fa75c-2120-4d8c-8830-84ec25c9469e" sourceObject="urn:freebxml:registry:Organization:freebXMLRegistry" targetObject="urn:freebxml:registry:demoDB:test:cms:ContentCatalogingService:cppaCataloging"/>
+  <!-- Second OffersService association, between service and 'Sun' Organization, to demonstrate 'OffersService' by Organization that is not the providing organization. -->
+  <Association associationType="urn:oasis:names:tc:ebxml-regrep:AssociationType:OffersService" id="urn:uuid:26d50441-561d-4342-b4fe-b537703b7e06" sourceObject="urn:freebxml:registry:demoDB:Sun" targetObject="urn:freebxml:registry:demoDB:test:cms:ContentCatalogingService:cppaCataloging"/>
+  <ExternalLink id="urn:freebxml:registry:demoDB:test:cms:ExternalLink:cppaCataloging:homepage" externalURI="http://localhost:8080/CatalogingTestCPPACataloging/">
+    <Name>
+      <LocalizedString value="homepage"/>
+    </Name>
+    <Description>
+      <LocalizedString value="HTML page describing service"/>
+    </Description>
+  </ExternalLink>
+  <ExternalLink id="urn:freebxml:registry:demoDB:test:cms:ExternalLink:cppaCataloging:WSDL" externalURI="http://localhost:8080/CatalogingTestCPPACataloging/cppaCataloging?WSDL">
+    <Name>
+      <LocalizedString value="Test CPPA Cataloging Service WSDL"/>
+    </Name>
+    <Description>
+      <LocalizedString value="WSDL for service"/>
+    </Description>
+  </ExternalLink>
+  <!-- Content Cataloging Service for GIFs that is used for testing Content Cataloging Service support. -->
+  <Service lid="urn:freebxml:registry:demoDB:test:cms:ContentCatalogingService:gifCataloging" id="urn:uuid:0d5225bc-d3a0-4309-90b4-b52c2a79b101">
+    <Name>
+      <LocalizedString charset="UTF-8" value="Test GIF Cataloging Service"/>
+    </Name>
+    <Description>
+      <LocalizedString charset="UTF-8" value="Content Cataloging Service for testing only."/>
+    </Description>
+    <!-- ContentManagementService classification -->
+    <Classification classificationNode="urn:oasis:names:tc:ebxml-regrep:ContentManagementService:ContentCatalogingService" classifiedObject="urn:uuid:0d5225bc-d3a0-4309-90b4-b52c2a79b101" id="urn:uuid:299bec6d-7998-46a0-9f2d-c40de296fe87">
+      <Name>
+        <LocalizedString charset="UTF-8" value="ContentCatalogingService"/>
+      </Name>
+    </Classification>
+    <!-- InvocationModel classification -->
+    <Classification classificationNode="urn:oasis:names:tc:ebxml-regrep:InvocationModel:Inline" classifiedObject="urn:uuid:0d5225bc-d3a0-4309-90b4-b52c2a79b101" id="urn:uuid:fc0d8d7f-cda2-4fe2-adbe-859ddce4b3d3">
+      <Name>
+        <LocalizedString charset="UTF-8" value="Inline"/>
+      </Name>
+    </Classification>
+    <!-- ErrorHandlingModel classification -->
+    <Classification classificationNode="urn:oasis:names:tc:ebxml-regrep:ErrorHandlingModel:FailOnError" classifiedObject="urn:uuid:0d5225bc-d3a0-4309-90b4-b52c2a79b101" id="urn:uuid:cd182401-0417-421f-b285-e82a273985aa">
+      <Name>
+        <LocalizedString charset="UTF-8" value="FailOnError"/>
+      </Name>
+    </Classification>
+    <ServiceBinding accessURI="http://localhost:8080/CatalogingTestGIFCataloging/gifCataloging" id="urn:uuid:9ce4a3cf-060d-4975-a56c-84dc5a9a041a" service="urn:uuid:0d5225bc-d3a0-4309-90b4-b52c2a79b101">
+      <Name>
+        <LocalizedString charset="UTF-8" value="'gifCataloging' Content Cataloging Service binding"/>
+      </Name>
+      <Description>
+        <LocalizedString charset="UTF-8" value="Service Binding to 'gifCataloging' Content Cataloging Service"/>
+      </Description>
+    </ServiceBinding>
+  </Service>
+  <Association associationType="urn:oasis:names:tc:ebxml-regrep:AssociationType:OffersService" id="urn:uuid:a71ac86e-8ebb-4e9b-a5cb-e52eaccbcb38" sourceObject="urn:freebxml:registry:Organization:freebXMLRegistry" targetObject="urn:uuid:0d5225bc-d3a0-4309-90b4-b52c2a79b101"/>
+  <!-- The freebXML organization -->
+  <ObjectRef id="urn:freebxml:registry:Organization:freebXMLRegistry"/>
+  <!-- The 'Sun' organization -->
+  <ObjectRef id="urn:freebxml:registry:demoDB:Sun"/>
+</RegistryObjectList>

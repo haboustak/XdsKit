@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EFDC6B8B-895E-4C4D-87D7-83FC9116D4A3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XdsKit.Oasis</RootNamespace>
+    <AssemblyName>XdsKit.Oasis</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\ProductAssemblyInfo.cs">
+      <Link>Properties\ProductAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\VersionAssemblyInfo.cs">
+      <Link>Properties\VersionAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Namespaces.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegRep\Models\Action.cs" />
+    <Compile Include="RegRep\Models\AdhocQuery.cs" />
+    <Compile Include="RegRep\Models\Association.cs" />
+    <Compile Include="RegRep\Models\AuditableEvent.cs" />
+    <Compile Include="RegRep\Models\Classification.cs" />
+    <Compile Include="RegRep\Models\ClassificationNode.cs" />
+    <Compile Include="RegRep\Models\ClassificationScheme.cs" />
+    <Compile Include="RegRep\Models\EmailAddress.cs" />
+    <Compile Include="RegRep\Models\ExternalIdentifier.cs" />
+    <Compile Include="RegRep\Models\ExternalLink.cs" />
+    <Compile Include="RegRep\Models\ExtrinsicObject.cs" />
+    <Compile Include="RegRep\Models\Federation.cs" />
+    <Compile Include="RegRep\Models\Identifiable.cs" />
+    <Compile Include="RegRep\Models\InternationalString.cs" />
+    <Compile Include="RegRep\Models\LocalizedString.cs" />
+    <Compile Include="RegRep\Models\Notification.cs" />
+    <Compile Include="RegRep\Models\NotifyAction.cs" />
+    <Compile Include="RegRep\Models\ObjectRef.cs" />
+    <Compile Include="RegRep\Models\Organization.cs" />
+    <Compile Include="RegRep\Models\Person.cs" />
+    <Compile Include="RegRep\Models\PersonName.cs" />
+    <Compile Include="RegRep\Models\PostalAddress.cs" />
+    <Compile Include="RegRep\Models\QueryExpression.cs" />
+    <Compile Include="RegRep\Models\Registry.cs" />
+    <Compile Include="RegRep\Models\RegistryObject.cs" />
+    <Compile Include="RegRep\Models\RegistryObjectList.cs" />
+    <Compile Include="RegRep\Models\RegistryPackage.cs" />
+    <Compile Include="RegRep\Models\Service.cs" />
+    <Compile Include="RegRep\Models\ServiceBinding.cs" />
+    <Compile Include="RegRep\Models\Slot.cs" />
+    <Compile Include="RegRep\Models\SpecificationLink.cs" />
+    <Compile Include="RegRep\Models\Subscription.cs" />
+    <Compile Include="RegRep\Models\TelephoneNumber.cs" />
+    <Compile Include="RegRep\Models\User.cs" />
+    <Compile Include="RegRep\Models\ValueList.cs" />
+    <Compile Include="RegRep\Models\VersionInfo.cs" />
+    <Compile Include="RegRep\Protocols\RegistryError.cs" />
+    <Compile Include="RegRep\Protocols\RegistryErrorList.cs" />
+    <Compile Include="RegRep\Protocols\RegistryResponse.cs" />
+    <Compile Include="RegRep\Protocols\ResponseStatus.cs" />
+    <Compile Include="RegRep\Services\SubmitObjectsRequest.cs" />
+    <Compile Include="StringExtensions.AsTimeSpan.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Schema\cms.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Schema\lcm.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Schema\query.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Schema\rim.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Schema\rs.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

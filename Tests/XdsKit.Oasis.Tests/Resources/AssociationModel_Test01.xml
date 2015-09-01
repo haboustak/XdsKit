@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RegistryObjectList xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+
+  <RegistryPackage id="urn:xdskit:com:c7ptmx37tfbcwy8ky7m"
+      objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:RegistryPackage">
+  </RegistryPackage>
+  <ExtrinsicObject
+  id="urn:xdskit:com:c7ptmx37tfbcwy8ky7n"
+  mimeType="text/plain"
+  objectType="urn:xdskit:com:c7ptmx37tfbcwy8ky7o"
+  isOpaque="true">
+    <VersionInfo versionName="1.0+revision.5" comment="This is the latest version"></VersionInfo>
+  </ExtrinsicObject>
+  <ExtrinsicObject
+    id="urn:xdskit:com:c7ptmx37tfbcwy8ky7p"
+    mimeType="application/pdf"
+    objectType="urn:xdskit:com:c7ptmx37tfbcwy8ky7o"
+    isOpaque="false">
+    <VersionInfo versionName="775"></VersionInfo>
+  </ExtrinsicObject>
+  <Association
+    associationType="urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember"
+    sourceObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7m"
+    targetObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7n" />
+  <Association
+    associationType="urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember"
+    sourceObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7m"
+    targetObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7p" />
+</RegistryObjectList>
