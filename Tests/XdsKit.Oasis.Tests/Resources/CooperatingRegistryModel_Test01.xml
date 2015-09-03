@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RegistryObjectList xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+  <Registry id="urn:xdskit:com:c7ptmx37tfbcwy8ky7a"
+                  operator="urn:xdskit:com:c7ptmx37tfbcwy8ky7b"
+                  specificationVersion="3.0"
+                  replicationSyncLatency="PT2H"
+                  catalogingLatency="P2D"
+                  conformanceProfile="registryLite" />
+  <Registry id="urn:xdskit:com:c7ptmx37tfbcwy8ky7d"
+                  operator="urn:xdskit:com:c7ptmx37tfbcwy8ky7e"
+                  specificationVersion="3.0"
+                  conformanceProfile="registryFull" />
+
+
+  <Federation id="urn:xdskit:com:c7ptmx37tfbcwy8ky7g"
+                  replicationSyncLatency="PT2H" />
+  <Federation id="urn:xdskit:com:c7ptmx37tfbcwy8ky7h" />
+
+  <Association associationType="urn:oasis:names:tc:ebxml-regrep:AssociationType:HasFederationMember"
+               sourceObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7g"
+               targetObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7a" />
+
+  <Association associationType="urn:oasis:names:tc:ebxml-regrep:AssociationType:HasFederationMember"
+               sourceObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7g"
+               targetObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7d" />
+
+</RegistryObjectList>

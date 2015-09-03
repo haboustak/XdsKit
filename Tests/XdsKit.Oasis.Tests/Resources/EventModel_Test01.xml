@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RegistryObjectList xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+  <Subscription
+    id="urn:xdskit:com:c7ptmx37tfbcwy8ky7m"
+    objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Subscription"
+    selector="urn:xdskit:com:query:c7ptmx37tfbcwy8ky7o"
+    startTime="2015-01-01T09:00:00"
+    notificationInterval="PT1H">
+    <NotifyAction 
+      endPoint="mailto:haboustak@xdskit.com"
+      notificationOption="urn:oasis:names:tc:ebxml-regrep:NotificationOptionType:Objects"/>
+    <NotifyAction
+      endPoint="urn:xdskit:com:c7ptmx37tfbcwy8ky7n" />
+  </Subscription>
+  
+  <AdhocQuery id="urn:xdskit:com:query:c7ptmx37tfbcwy8ky7o">
+    <QueryExpression queryLanguage="urn:oasis:names:tc:ebxml-regrep:QueryLanguage:SQL-92">
+      select * from RegistryObjects where id='urn:it:is:1992'
+    </QueryExpression>
+  </AdhocQuery>
+</RegistryObjectList>

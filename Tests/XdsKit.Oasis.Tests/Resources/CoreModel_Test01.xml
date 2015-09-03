@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RegistryObjectList xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+  <RegistryPackage id="urn:xdskit:com:c7ptmx37tfbcwy8ky7m"
+      objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:RegistryPackage">
+    <ExternalIdentifier
+      id="urn:xdskit:com:c7ptmx37tfbcwy8ky7q"
+      identificationScheme="urn:xdskit:com:documents:localid"
+      registryObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7n"
+      value="1" />
+    <ExternalIdentifier
+      id="urn:xdskit:com:c7ptmx37tfbcwy8ky7r"
+      identificationScheme="urn:xdskit:com:documents:localid"
+      registryObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7p"
+      value="2" />
+  <RegistryObjectList>
+      <!-- I'm not sure RegistryPackage actually packages via containment, versus Association -->
+      <ExtrinsicObject
+      id="urn:xdskit:com:c7ptmx37tfbcwy8ky7n"
+      mimeType="text/plain"
+      objectType="urn:xdskit:com:c7ptmx37tfbcwy8ky7o"
+      isOpaque="true">
+        <VersionInfo versionName="1.0+revision.5" comment="This is the latest version"></VersionInfo>
+      </ExtrinsicObject>
+      <ExtrinsicObject
+        id="urn:xdskit:com:c7ptmx37tfbcwy8ky7p"
+        mimeType="application/pdf"
+        objectType="urn:xdskit:com:c7ptmx37tfbcwy8ky7o">
+        <VersionInfo versionName="775"></VersionInfo>
+      </ExtrinsicObject>
+    </RegistryObjectList>
+  </RegistryPackage>
+  
+  <RegistryPackage id="urn:xdskit:com:c7ptmx37tfbcwy8ky7s"
+  objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:RegistryPackage">
+    <ExternalIdentifier
+      id="urn:xdskit:com:c7ptmx37tfbcwy8ky7w"
+      identificationScheme="urn:xdskit:com:documents:localid"
+      registryObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7t"
+      value="3" />
+      
+    <RegistryObjectList>
+      <ExtrinsicObject
+        id="urn:xdskit:com:c7ptmx37tfbcwy8ky7t"
+        mimeType="text/xml"
+        objectType="urn:xdskit:com:c7ptmx37tfbcwy8ky7o">
+      </ExtrinsicObject>
+
+      <ExternalLink id="urn:xdskit:com:c7ptmx37tfbcwy8ky7u" externalURI="https://xdskit.com/links/c7ptmx37tfbcwy8ky7u"/>
+      <ExternalLink id="urn:xdskit:com:c7ptmx37tfbcwy8ky7v" externalURI="https://xdskit.com/links/c7ptmx37tfbcwy8ky7v"/>
+    </RegistryObjectList>
+  </RegistryPackage>
+</RegistryObjectList>
