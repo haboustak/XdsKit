@@ -1,5 +1,5 @@
-﻿using System.Xml;
-using System.Xml.Serialization;
+﻿using System.Collections.Generic;
+using System.Xml.Linq;
 
 using NUnit.Framework;
 
@@ -13,13 +13,7 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
         [Test]
         public void Should_Deserialize_Test01()
         {
-            var list = Resource.Deserialize<RegistryObjectList>(
-                "Resources.ProvenanceModel_Test01.xml",
-                new XmlRootAttribute
-                {
-                    ElementName = "RegistryObjectList",
-                    Namespace = Namespaces.Rim
-                });
+            var list = Resource.Deserialize<RegistryObjectList>("Resources.ProvenanceModel_Test01.xml");
 
             Assert.AreEqual(1, list.Organizations.Count);
 
@@ -59,11 +53,11 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
             Assert.AreEqual("https://services.xdskit.com/person", person.Home);
             Assert.AreEqual(0, person.Slots.Count);
             Assert.NotNull(person.Name);
-            Assert.AreEqual("Michael Haboustak", person.Name.GetValue("en-US"));
-            Assert.AreEqual("Michael Haboustak", person.Name.GetValue());
+            Assert.AreEqual("Michael Haboustak", person.Name.GetValue("en-AU"));
+            Assert.AreEqual(null, person.Name.GetValue());
             Assert.NotNull(person.Description);
-            Assert.AreEqual("This object represents an ebRIM person", person.Description.GetValue("en-US"));
-            Assert.AreEqual("This object represents an ebRIM person", person.Description.GetValue());
+            Assert.AreEqual("This object represents an ebRIM person", person.Description.GetValue("en-GB"));
+            Assert.AreEqual(null, person.Description.GetValue());
             Assert.IsNull(person.VersionInfo);
             Assert.AreEqual(0, person.Classifications.Count);
             Assert.AreEqual(0, person.ExternalIdentifiers.Count);
@@ -116,11 +110,265 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
 
             Assert.AreEqual(2, list.Associations.Count);
             AssertAssociation(list.Associations[0],
-                "urn:oasis:names:tc:ebxml-regrep:AssociationType:AffiliatedWith", "urn:xdskit:com:c7ptmx37tfbcwy8ky7o", 
+                "urn:oasis:names:tc:ebxml-regrep:AssociationType:AffiliatedWith", "urn:xdskit:com:c7ptmx37tfbcwy8ky7o",
                 list.Persons[0].Id, list.Organizations[0].Id);
             AssertAssociation(list.Associations[1],
                 "urn:oasis:names:tc:ebxml-regrep:AssociationType:AffiliatedWith", "urn:xdskit:com:c7ptmx37tfbcwy8ky7q",
                 list.Users[0].Id, list.Organizations[0].Id);
+        }
+
+        [Test]
+        public void Should_Serialize_Test01()
+        {
+            var list = Build_Test01();
+            list.ToXml()
+                .AssertByLine(XDocument.Parse(Resource.Get("Resources.ProvenanceModel_Test01.xml")));
+        }
+
+        [Test]
+        public void Should_Parse_Serialized_Test01()
+        {
+            var list = Build_Test01();
+            var xml = list.ToXml().ToString();
+
+            var list2 = xml.FromXml<RegistryObjectList>();
+            list.DeepEquals(list2);
+        }
+
+        private RegistryObjectList Build_Test01()
+        {
+            var list = new RegistryObjectList
+            {
+                Persons = new List<Person>
+                {
+                    new Person
+                    {
+                        Id = "urn:xdskit:com:c7ptmx37tfbcwy8ky7m",
+                        Home = "https://services.xdskit.com/person",
+                        Name = XmlUtil.LocalString("Michael Haboustak", "UTF-8", "en-AU"),
+                        Description = XmlUtil.LocalString("This object represents an ebRIM person", "UTF-8", "en-GB"),
+                        Addresses = new List<PostalAddress>
+                        {
+                            new PostalAddress
+                            {
+                                StreetNumber = "123",
+                                Street = "Sesame St",
+                                PostalCode = "10212",
+                                City = "New York",
+                                StateOrProvince = "NY",
+                                Country = "US"
+                            },
+                            new PostalAddress
+                            {
+                                StreetNumber = "400",
+                                Street = "Principal Way",
+                                PostalCode = "19101",
+                                City = "Philadelphia",
+                                StateOrProvince = "PA",
+                                Country = "US"
+                            }
+                        },
+                        PersonName = new PersonName
+                        {
+                            MiddleName = "M",
+                            LastName = "Haboustak",
+                            FirstName = "Michael"
+                        },
+                        TelephoneNumbers = new List<TelephoneNumber>
+                        {
+                            new TelephoneNumber
+                            {
+                                CountryCode = "1",
+                                AreaCode = "513",
+                                Number = "555-1212",
+                                Extension = "1040",
+                                PhoneType = "Home"
+                            },
+                            new TelephoneNumber
+                            {
+                                CountryCode = "44",
+                                AreaCode = "212",
+                                Number = "555-3000",
+                                Extension = "2010",
+                                PhoneType = "Work"
+                            },
+                            new TelephoneNumber
+                            {
+                                CountryCode = "2",
+                                AreaCode = "212",
+                                Number = "555-8080",
+                                Extension = "30",
+                                PhoneType = "Fax"
+                            }
+                        },
+                        EmailAddresses = new List<EmailAddress>
+                        {
+                            new EmailAddress
+                            {
+                                Address = "haboustak@xdskit.com",
+                                Type = "Employee"
+                            }
+                        }
+                    }
+                },
+                Users = new List<User>
+                {
+                    new User
+                    {
+                        Id = "urn:xdskit:com:c7ptmx37tfbcwy8ky7p",
+                        Home = "https://services.xdskit.com/user",
+                        Name = XmlUtil.LocalString("Mike Haboustak"),
+                        Description = XmlUtil.LocalString("This object represents an ebRIM user"),
+                        Addresses = new List<PostalAddress>
+                        {
+                            new PostalAddress
+                            {
+                                StreetNumber = "123",
+                                Street = "Sesame St",
+                                PostalCode = "10212",
+                                City = "New York",
+                                StateOrProvince = "NY",
+                                Country = "US"
+                            },
+                            new PostalAddress
+                            {
+                                StreetNumber = "400",
+                                Street = "Principal Way",
+                                PostalCode = "19101",
+                                City = "Philadelphia",
+                                StateOrProvince = "PA",
+                                Country = "US"
+                            }
+                        },
+                        PersonName = new PersonName
+                        {
+                            MiddleName = "M",
+                            LastName = "Haboustak",
+                            FirstName = "Mike"
+                        },
+                        TelephoneNumbers = new List<TelephoneNumber>
+                        {
+                            new TelephoneNumber
+                            {
+                                CountryCode = "1",
+                                AreaCode = "513",
+                                Number = "555-1212",
+                                Extension = "1040",
+                                PhoneType = "Home"
+                            },
+                            new TelephoneNumber
+                            {
+                                CountryCode = "44",
+                                AreaCode = "212",
+                                Number = "555-3000",
+                                Extension = "2010",
+                                PhoneType = "Work"
+                            },
+                            new TelephoneNumber
+                            {
+                                CountryCode = "2",
+                                AreaCode = "212",
+                                Number = "555-8080",
+                                Extension = "30",
+                                PhoneType = "Fax"
+                            }
+                        },
+                        EmailAddresses = new List<EmailAddress>
+                        {
+                            new EmailAddress
+                            {
+                                Address = "haboustak@xdskit.com",
+                                Type = "Employee"
+                            }
+                        }
+                    }
+                },
+                Organizations = new List<Organization>
+                {
+                    new Organization
+                    {
+                        Id = "urn:xdskit:com:c7ptmx37tfbcwy8ky7n",
+                        Home = "https://services.xdskit.com/organizations",
+                        PrimaryContact = "urn:xdskit:com:c7ptmx37tfbcwy8ky7m",
+                        Name = XmlUtil.LocalString("XdsKit, Inc."),
+                        Description = XmlUtil.LocalString("Main XdsKit organization record"),
+                        Addresses = new List<PostalAddress>
+                        {
+                            new PostalAddress
+                            {
+                                StreetNumber = "123",
+                                Street = "Sesame St",
+                                PostalCode = "10212",
+                                City = "New York",
+                                StateOrProvince = "NY",
+                                Country = "US"
+                            },
+                            new PostalAddress
+                            {
+                                StreetNumber = "400",
+                                Street = "Principal Way",
+                                PostalCode = "19101",
+                                City = "Philadelphia",
+                                StateOrProvince = "PA",
+                                Country = "US"
+                            }
+                        },
+                        TelephoneNumbers = new List<TelephoneNumber>
+                        {
+                            new TelephoneNumber
+                            {
+                                CountryCode = "1",
+                                AreaCode = "513",
+                                Number = "555-1212",
+                                PhoneType = "Home"
+                            },
+                            new TelephoneNumber
+                            {
+                                CountryCode = "44",
+                                AreaCode = "212",
+                                Number = "555-3000",
+                                Extension = "2010",
+                                PhoneType = "Work"
+                            },
+                            new TelephoneNumber
+                            {
+                                CountryCode = "2",
+                                AreaCode = "212",
+                                Number = "555-8080",
+                                Extension = "30",
+                                PhoneType = "Fax"
+                            }
+                        },
+                        EmailAddresses = new List<EmailAddress>
+                        {
+                            new EmailAddress
+                            {
+                                Address = "haboustak@xdskit.com",
+                                Type = "Company"
+                            }
+                        }
+                    }
+                },
+                Associations = new List<Association>
+                {
+                    new Association
+                    {
+                        Id = "urn:xdskit:com:c7ptmx37tfbcwy8ky7o",
+                        Type = "urn:oasis:names:tc:ebxml-regrep:AssociationType:AffiliatedWith",
+                        Source = "urn:xdskit:com:c7ptmx37tfbcwy8ky7m",
+                        Target = "urn:xdskit:com:c7ptmx37tfbcwy8ky7n"
+                    },
+                    new Association
+                    {
+                        Id = "urn:xdskit:com:c7ptmx37tfbcwy8ky7q",
+                        Type = "urn:oasis:names:tc:ebxml-regrep:AssociationType:AffiliatedWith",
+                        Source = "urn:xdskit:com:c7ptmx37tfbcwy8ky7p",
+                        Target = "urn:xdskit:com:c7ptmx37tfbcwy8ky7n"
+                    }
+                }
+            };
+
+            return list;
         }
 
         private void AssertPostalAddress(PostalAddress address,
@@ -159,5 +407,5 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
             Assert.AreEqual(sourceId ?? "", association.Source ?? "");
             Assert.AreEqual(targetId ?? "", association.Target ?? "");
         }
-        }
+    }
 }

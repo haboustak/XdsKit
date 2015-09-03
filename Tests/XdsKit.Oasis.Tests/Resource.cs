@@ -21,14 +21,16 @@ namespace XdsKit.Oasis.Tests
 
         public static Stream Stream(string name)
         {
-            return Assembly.GetExecutingAssembly().Resource(name);
+            var assembly = Assembly.GetExecutingAssembly();
+            return assembly.GetManifestResourceStream(typeof(Resource).Namespace + "." + name.TrimStart('.'));
         }
 
-        public static T Deserialize<T>(string name, XmlRootAttribute root)
+        public static T Deserialize<T>(string name)
         {
             using (var stream = Stream(name))
             using (var reader = XmlReader.Create(stream))
             {
+                XmlRootAttribute root = typeof(T).XmlRoot();
                 var serializer = new XmlSerializer(typeof(T), root);
                 return (T)serializer.Deserialize(reader);
             }            

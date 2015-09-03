@@ -1,8 +1,9 @@
-﻿
-using System;
-using System.Runtime;
+﻿using System;
+using System.Collections.Generic;
+using System.Xml.Linq;
+
 using NUnit.Framework;
-using System.Xml.Serialization;
+
 using XdsKit.Oasis.RegRep.Models;
 
 namespace XdsKit.Oasis.Tests.RegRep.Models
@@ -13,13 +14,7 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
         [Test]
         public void Should_Deserialize_Test01()
         {
-            var list = Resource.Deserialize<RegistryObjectList>(
-                "Resources.EventModel_Test01.xml",
-                new XmlRootAttribute
-                {
-                    ElementName = "RegistryObjectList",
-                    Namespace = Namespaces.Rim
-                });
+            var list = Resource.Deserialize<RegistryObjectList>("Resources.EventModel_Test01.xml");
 
             Assert.AreEqual(1, list.Subscriptions.Count);
 
@@ -51,15 +46,71 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
         }
 
         [Test]
+        public void Should_Serialize_Test01()
+        {
+            var list = Build_Test01();
+            list.ToXml()
+                .AssertByLine(XDocument.Parse(Resource.Get("Resources.EventModel_Test01.xml")));
+        }
+
+        [Test]
+        public void Should_Parse_Serialized_Test01()
+        {
+            var list = Build_Test01();
+            var xml = list.ToXml().ToString();
+
+            var list2 = xml.FromXml<RegistryObjectList>();
+            list.DeepEquals(list2);
+        }
+
+        private RegistryObjectList Build_Test01()
+        {
+            var list = new RegistryObjectList
+            {
+                Subscriptions = new List<Subscription>
+                {
+                    new Subscription
+                    {
+                        Id="urn:xdskit:com:c7ptmx37tfbcwy8ky7m",
+                        ObjectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Subscription",
+                        Selector="urn:xdskit:com:query:c7ptmx37tfbcwy8ky7o",
+                        StartTime=DateTime.Parse("2015-01-01T09:00:00"),
+                        NotificationInterval="PT1H".AsTimeSpan(),
+                        NotifyActions = new List<NotifyAction>
+                        {
+                            new NotifyAction
+                            {
+                                Endpoint="mailto:haboustak@xdskit.com",
+                                NotificationOption="urn:oasis:names:tc:ebxml-regrep:NotificationOptionType:Objects"
+                            },
+                            new NotifyAction
+                            {
+                                Endpoint="urn:xdskit:com:c7ptmx37tfbcwy8ky7n"
+                            }
+                        }
+                    }
+                },
+                AdhocQueries = new List<AdhocQuery>
+                {
+                    new AdhocQuery
+                    {
+                        Id="urn:xdskit:com:query:c7ptmx37tfbcwy8ky7o",
+                        QueryExpression = new QueryExpression
+                        {
+                             QueryLanguage="urn:oasis:names:tc:ebxml-regrep:QueryLanguage:SQL-92",
+                             Query="select * from RegistryObjects where id='urn:it:is:1992'"
+                        }
+                    }
+                }
+            };
+
+            return list;
+        }
+
+        [Test]
         public void Should_Deserialize_Test02()
         {
-            var list = Resource.Deserialize<RegistryObjectList>(
-                "Resources.EventModel_Test02.xml",
-                new XmlRootAttribute
-                {
-                    ElementName = "RegistryObjectList",
-                    Namespace = Namespaces.Rim
-                });
+            var list = Resource.Deserialize<RegistryObjectList>("Resources.EventModel_Test02.xml");
 
             Assert.AreEqual(1, list.Notifications.Count);
             var notification = list.Notifications[0];
@@ -71,22 +122,65 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
         }
 
         [Test]
+        public void Should_Serialize_Test02()
+        {
+            var list = Build_Test02();
+            list.ToXml()
+                .AssertByLine(XDocument.Parse(Resource.Get("Resources.EventModel_Test02.xml")));
+        }
+
+        [Test]
+        public void Should_Parse_Serialized_Test02()
+        {
+            var list = Build_Test02();
+            var xml = list.ToXml().ToString();
+
+            var list2 = xml.FromXml<RegistryObjectList>();
+            list.DeepEquals(list2);
+        }
+
+        private RegistryObjectList Build_Test02()
+        {
+            var list = new RegistryObjectList
+            {
+                Notifications = new List<Notification>
+                {
+                    new Notification
+                    {
+                        Id="urn:xdskit:com:c7ptmx37tfbcwy8ky7a",
+                        Subscription="urn:xdskit:com:c7ptmx37tfbcwy8ky7m",
+                        RegistryObjects = new RegistryObjectList
+                        {
+                            ObjectReferences = new List<ObjectRef>
+                            {
+                                new ObjectRef
+                                {
+                                    Id="urn:xdskit:com:c7ptmx37tfbcwy8ky7n"
+                                },
+                                new ObjectRef
+                                {
+                                    Id="urn:xdskit:com:c7ptmx37tfbcwy8ky7p"
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            return list;
+        }
+
+        [Test]
         public void Should_Deserialize_Test03()
         {
-            var list = Resource.Deserialize<RegistryObjectList>(
-                "Resources.EventModel_Test03.xml",
-                new XmlRootAttribute
-                {
-                    ElementName = "RegistryObjectList",
-                    Namespace = Namespaces.Rim
-                });
+            var list = Resource.Deserialize<RegistryObjectList>("Resources.EventModel_Test03.xml");
 
             Assert.AreEqual(2, list.AuditableEvents.Count);
             var audit = list.AuditableEvents[0];
             AssertAuditableEvent(audit,
                 "urn:xdskit:com:c7ptmx37tfbcwy8ky7a",
                 "urn:oasis:names:tc:ebxml-regrep:EventType:Created", 
-                new DateTime(2015,08,31,11,49,22, DateTimeKind.Utc).ToLocalTime(),
+                new DateTime(2015,08,31,6,49,22),
                 "urn:xdskit:com:c7ptmx37tfbcwy8ky7b",
                 "urn:xdskit:com:c7ptmx37tfbcwy8ky7c");
             Assert.AreEqual(2, audit.AffectedObjects.Count);
@@ -97,11 +191,66 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
             AssertAuditableEvent(audit,
                 "urn:xdskit:com:c7ptmx37tfbcwy8ky7d",
                 "urn:oasis:names:tc:ebxml-regrep:EventType:Deleted",
-                new DateTime(2015, 08, 31, 11, 52, 07, DateTimeKind.Utc).ToLocalTime(),
+                new DateTime(2015, 08, 31, 6, 52, 07),
                 "urn:xdskit:com:c7ptmx37tfbcwy8ky7e",
                 "urn:xdskit:com:c7ptmx37tfbcwy8ky7f");
             Assert.AreEqual(1, audit.AffectedObjects.Count);
             Assert.AreEqual("urn:xdskit:com:c7ptmx37tfbcwy8ky7m", audit.AffectedObjects[0].Id);
+        }
+
+        [Test]
+        public void Should_Serialize_Test03()
+        {
+            var list = Build_Test03();
+            list.ToXml()
+                .AssertByLine(XDocument.Parse(Resource.Get("Resources.EventModel_Test03.xml")));
+        }
+
+        [Test]
+        public void Should_Parse_Serialized_Test03()
+        {
+            var list = Build_Test03();
+            var xml = list.ToXml().ToString();
+
+            var list2 = xml.FromXml<RegistryObjectList>();
+            list.DeepEquals(list2);
+        }
+
+        private RegistryObjectList Build_Test03()
+        {
+            var list = new RegistryObjectList
+            {
+                AuditableEvents = new List<AuditableEvent>
+                {
+                    new AuditableEvent
+                    {
+                        Id="urn:xdskit:com:c7ptmx37tfbcwy8ky7a",
+                        EventType="urn:oasis:names:tc:ebxml-regrep:EventType:Created",
+                        Timestamp=DateTime.Parse("2015-08-31T06:49:22"),
+                        User="urn:xdskit:com:c7ptmx37tfbcwy8ky7b",
+                        RequestId="urn:xdskit:com:c7ptmx37tfbcwy8ky7c",
+                        AffectedObjects = new List<ObjectRef>
+                        {
+                            new ObjectRef { Id="urn:xdskit:com:c7ptmx37tfbcwy8ky7n" },
+                            new ObjectRef { Id="urn:xdskit:com:c7ptmx37tfbcwy8ky7p" }
+                        }
+                    },
+                    new AuditableEvent
+                    {
+                        Id="urn:xdskit:com:c7ptmx37tfbcwy8ky7d",
+                        EventType="urn:oasis:names:tc:ebxml-regrep:EventType:Deleted",
+                        Timestamp=DateTime.Parse("2015-08-31T06:52:07"),
+                        User="urn:xdskit:com:c7ptmx37tfbcwy8ky7e",
+                        RequestId="urn:xdskit:com:c7ptmx37tfbcwy8ky7f",
+                        AffectedObjects = new List<ObjectRef>
+                        {
+                            new ObjectRef { Id="urn:xdskit:com:c7ptmx37tfbcwy8ky7m" }
+                        }
+                    }
+                }
+            };
+
+            return list;
         }
 
         private void AssertNotifyAction(NotifyAction action, string endPoint, string notificationOption)

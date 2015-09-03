@@ -2,7 +2,7 @@
 
 namespace XdsKit.Oasis.RegRep.Protocols
 {
-    [XmlType(Namespace = Namespaces.Rs)]
+    [XmlRoot(Namespace = Namespaces.Rs)]
     public class RegistryError
     {
         [XmlAttribute("codeContext")]

@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace XdsKit.Oasis.RegRep.Models
 {
-    [XmlType(Namespace = Namespaces.Rim)]
+    [XmlRoot(Namespace = Namespaces.Rim)]
     public class Identifiable
     {
         [XmlAttribute("id", DataType = "anyURI")]
@@ -13,6 +14,6 @@ namespace XdsKit.Oasis.RegRep.Models
         public string Home { get; set; }
 
         [XmlElement("Slot")]
-        public List<Slot> Slots { get; set; } 
+        public List<Slot> Slots { get; set; }         
     }
 }

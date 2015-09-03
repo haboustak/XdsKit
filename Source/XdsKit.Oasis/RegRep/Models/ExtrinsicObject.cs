@@ -1,17 +1,28 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace XdsKit.Oasis.RegRep.Models
 {
-    [XmlType(Namespace = Namespaces.Rim)]
+    [XmlRoot(Namespace = Namespaces.Rim)]
     public class ExtrinsicObject : RegistryObject
     {
         [XmlElement("ContentVersionInfo")]
         public VersionInfo ContentVersionInfo { get; set; }
 
-        [XmlAttribute("mimeType")]
+        [XmlAttribute("mimeType"), DefaultValue("application/octet-stream")]
         public string MimeType { get; set; }
 
-        [XmlAttribute("isOpaque")]
+        [XmlIgnore]
+        public bool MimeTypeSpecified
+        {
+            get { return MimeType.Specified("application/octet-stream"); }
+        }
+
+        [XmlAttribute("isOpaque"), DefaultValue(false)]
         public bool IsOpaque { get; set; }
+
+        [XmlIgnore]
+        public bool IsOpaqueSpecified { get { return IsOpaque; } }
     }
 }

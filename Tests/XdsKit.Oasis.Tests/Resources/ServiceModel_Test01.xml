@@ -4,26 +4,26 @@
     lid="urn:xdskit:com:CatalogService:findResource" 
       id="urn:xdskit:com:CatalogService:findResource">
     <Name>
-      <LocalizedString charset="UTF-8" value="Find Resource Service"/>
+      <LocalizedString value="Find Resource Service"/>
     </Name>
     <Description>
-      <LocalizedString charset="UTF-8" value="This services searches the global catalog for resources."/>
+      <LocalizedString value="This services searches the global catalog for resources."/>
     </Description>
     <ServiceBinding  accessURI="https://services.xdskit.com/catalog/findResource" 
       id="urn:xdskit:com:c7ptmx37tfbcwy8ky7o" 
       service="urn:xdskit:com:CatalogService:findResource">
       <Name>
-        <LocalizedString charset="UTF-8" value="Find Resource Service binding (prod environment)"/>
+        <LocalizedString value="Find Resource Service binding (prod environment)"/>
       </Name>
       <Description>
-        <LocalizedString charset="UTF-8" value="Production environment binding for the Catalog's Find Resource service"/>
+        <LocalizedString value="Production environment binding for the Catalog's Find Resource service"/>
       </Description>
       <SpecificationLink 
           id="urn:xdskit:com:c7ptmx37tfbcwy8ky7p" 
           serviceBinding="urn:xdskit:com:c7ptmx37tfbcwy8ky7o" 
           specificationObject="urn:xdskit:com:Documentation:CatalogService:findResource">
         <UsageDescription>
-          <LocalizedString charset="UTF-8" value="The find resources service has 2 parameters: ResourceType and Id"/>
+          <LocalizedString value="The find resources service has 2 parameters: ResourceType and Id"/>
         </UsageDescription>
         <UsageParameter>ResourceType. DataType: referenceUri. The type of resource within the Catalog</UsageParameter>
         <UsageParameter>Id. DataType: anyUri. The ID of the resource to locate.</UsageParameter>
@@ -35,17 +35,17 @@
                   id="urn:xdskit:com:c7ptmx37tfbcwy8ky7m" 
                   service="urn:xdskit:com:CatalogService:findResource">
     <Name>
-      <LocalizedString charset="UTF-8" value="Find Resource Service binding (test environment)"/>
+      <LocalizedString value="Find Resource Service binding (test environment)"/>
     </Name>
     <Description>
-      <LocalizedString charset="UTF-8" value="Test environment binding for the Catalog's Find Resource service"/>
+      <LocalizedString value="Test environment binding for the Catalog's Find Resource service"/>
     </Description>
     <SpecificationLink 
         id="urn:xdskit:com:c7ptmx37tfbcwy8ky7n" 
         serviceBinding="urn:xdskit:com:c7ptmx37tfbcwy8ky7m" 
         specificationObject="urn:xdskit:com:Documentation:CatalogService:findResource">
       <UsageDescription>
-        <LocalizedString charset="UTF-8" value="The find resources service has 2 parameters: ResourceType and Id"/>
+        <LocalizedString value="The find resources service has 2 parameters: ResourceType and Id"/>
       </UsageDescription>
       <UsageParameter>ResourceType. DataType: referenceUri. The type of resource within the Catalog</UsageParameter>
       <UsageParameter>Id. DataType: anyUri. The ID of the resource to locate.</UsageParameter>

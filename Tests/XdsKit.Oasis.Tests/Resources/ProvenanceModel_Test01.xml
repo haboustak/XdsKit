@@ -4,14 +4,14 @@
 
   <Person id="urn:xdskit:com:c7ptmx37tfbcwy8ky7m" home="https://services.xdskit.com/person">
     <Name>
-      <LocalizedString charset="UTF-8" value="Michael Haboustak" xml:lang="en-US"/>
+      <LocalizedString value="Michael Haboustak" xml:lang="en-AU"/>
     </Name>
     <Description>
-      <LocalizedString charset="UTF-8" value="This object represents an ebRIM person" xml:lang="en-US"/>
+      <LocalizedString value="This object represents an ebRIM person" xml:lang="en-GB"/>
     </Description>
+    <PersonName middleName="M" lastName="Haboustak" firstName="Michael"/>
     <Address streetNumber="123" street="Sesame St" postalCode="10212" city="New York" stateOrProvince="NY" country="US"/>
     <Address streetNumber="400" street="Principal Way" postalCode="19101" city="Philadelphia" stateOrProvince="PA" country="US"/>
-    <PersonName middleName="M" lastName="Haboustak" firstName="Michael"/>
     <TelephoneNumber areaCode="513" number="555-1212" countryCode="1" extension="1040" phoneType="Home"/>
     <TelephoneNumber areaCode="212" number="555-3000" countryCode="44" extension="2010" phoneType="Work"/>
     <TelephoneNumber areaCode="212" number="555-8080" countryCode="2" extension="30" phoneType="Fax"/>
@@ -20,14 +20,14 @@
   
   <User id="urn:xdskit:com:c7ptmx37tfbcwy8ky7p" home="https://services.xdskit.com/user">
     <Name>
-      <LocalizedString charset="UTF-8" value="Mike Haboustak" xml:lang="en-US"/>
+      <LocalizedString value="Mike Haboustak"/>
     </Name>
     <Description>
-      <LocalizedString charset="UTF-8" value="This object represents an ebRIM user" xml:lang="en-US"/>
+      <LocalizedString value="This object represents an ebRIM user" />
     </Description>
+    <PersonName middleName="M" lastName="Haboustak" firstName="Mike"/>
     <Address streetNumber="123" street="Sesame St" postalCode="10212" city="New York" stateOrProvince="NY" country="US"/>
     <Address streetNumber="400" street="Principal Way" postalCode="19101" city="Philadelphia" stateOrProvince="PA" country="US"/>
-    <PersonName middleName="M" lastName="Haboustak" firstName="Mike"/>
     <TelephoneNumber areaCode="513" number="555-1212" countryCode="1" extension="1040" phoneType="Home"/>
     <TelephoneNumber areaCode="212" number="555-3000" countryCode="44" extension="2010" phoneType="Work"/>
     <TelephoneNumber areaCode="212" number="555-8080" countryCode="2" extension="30" phoneType="Fax"/>
@@ -39,10 +39,10 @@
                 home="https://services.xdskit.com/organizations"
                 primaryContact="urn:xdskit:com:c7ptmx37tfbcwy8ky7m">
     <Name>
-      <LocalizedString charset="UTF-8" value="XdsKit, Inc." xml:lang="en-US"/>
+      <LocalizedString value="XdsKit, Inc."/>
     </Name>
     <Description>
-      <LocalizedString charset="UTF-8" value="Main XdsKit organization record" xml:lang="en-US"/>
+      <LocalizedString value="Main XdsKit organization record"/>
     </Description>
     <Address streetNumber="123" street="Sesame St" postalCode="10212" city="New York" stateOrProvince="NY" country="US"/>
     <Address streetNumber="400" street="Principal Way" postalCode="19101" city="Philadelphia" stateOrProvince="PA" country="US"/>

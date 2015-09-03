@@ -4,7 +4,7 @@
                   operator="urn:xdskit:com:c7ptmx37tfbcwy8ky7b"
                   specificationVersion="3.0"
                   replicationSyncLatency="PT2H"
-                  catalogingLatency="P1D"
+                  catalogingLatency="P2D"
                   conformanceProfile="registryLite" />
   <Registry id="urn:xdskit:com:c7ptmx37tfbcwy8ky7d"
                   operator="urn:xdskit:com:c7ptmx37tfbcwy8ky7e"

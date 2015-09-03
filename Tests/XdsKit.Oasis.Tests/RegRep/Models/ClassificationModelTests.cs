@@ -1,5 +1,5 @@
-﻿using System.Runtime;
-using System.Xml.Serialization;
+﻿using System.Collections.Generic;
+using System.Xml.Linq;
 
 using NUnit.Framework;
 
@@ -13,13 +13,7 @@ namespace XdsKit.Oasis.Tests.Resources
         [Test]
         public void Should_Deserialize_Test01()
         {
-            var list = Resource.Deserialize<RegistryObjectList>(
-                "Resources.ClassificationModel_Test01.xml",
-                new XmlRootAttribute
-                {
-                    ElementName = "RegistryObjectList",
-                    Namespace = Namespaces.Rim
-                });
+            var list = Resource.Deserialize<RegistryObjectList>("Resources.ClassificationModel_Test01.xml");
 
             Assert.AreEqual(1, list.ClassificationSchemes.Count);
             var scheme = list.ClassificationSchemes[0];
@@ -63,6 +57,138 @@ namespace XdsKit.Oasis.Tests.Resources
                 "urn:xdskit:com:classificationScheme:CustomerType", "urn:xdskit:com:c7ptmx37tfbcwy8ky7p", "urn:xdskit:com:classificationScheme:CustomerType:ExpertCustomer", null);
             AssertClassification(list.Classifications[3],
                 "urn:xdskit:com:classificationScheme:PartnerRegion", "urn:xdskit:com:c7ptmx37tfbcwy8ky7o", null, "Northeast");
+        }
+        
+        [Test]
+        public void Should_Serialize_Test01()
+        {
+            var list = Build_Test01();
+            list.ToXml()
+                .AssertByLine(XDocument.Parse(Resource.Get("Resources.ClassificationModel_Test01.xml")));
+        }
+
+        [Test]
+        public void Should_Parse_Serialized_Test01()
+        {
+            var list = Build_Test01();
+            var xml = list.ToXml().ToString();
+            var list2 = xml.FromXml<RegistryObjectList>();
+            list.DeepEquals(list2);
+        }
+
+        private RegistryObjectList Build_Test01()
+        {
+            var list = new RegistryObjectList
+            {
+                ClassificationSchemes = new List<ClassificationScheme>
+                {
+                    new ClassificationScheme
+                    {
+                        LocalId = "urn:xdskit:com:classificationScheme:CustomerType",
+                        Id = "urn:xdskit:com:classificationScheme:CustomerType",
+                        IsInternal = true,
+                        NodeType = "urn:oasis:names:tc:ebxml-regrep:NodeType:UniqueCode",
+                        Name = XmlUtil.LocalString("CustomerType"),
+                        Description = XmlUtil.LocalString(
+                            "This is the ClassificationScheme for XdsKit customer types",
+                            "UTF-16"),
+                        Nodes = new List<ClassificationNode>
+                        {
+                            new ClassificationNode
+                            {
+                                LocalId="urn:xdskit:com:classificationScheme:CustomerType:NoviceCustomer",
+                                Id="urn:xdskit:com:classificationScheme:CustomerType:NoviceCustomer",
+                                Code="NoviceCustomer",
+                                Name = XmlUtil.LocalString("NoviceCustomer", "ASCII"),
+                                Description = XmlUtil.LocalString("This is customer is an XdsKit beginner.")
+                            },
+                            new ClassificationNode
+                            {
+                                LocalId="urn:xdskit:com:classificationScheme:CustomerType:CompetentCustomer",
+                                Id="urn:xdskit:com:classificationScheme:CustomerType:CompetentCustomer",
+                                Code="CompetentCustomer",
+                                Name = XmlUtil.LocalString("CompetentCustomer"),
+                                Description = XmlUtil.LocalString("This is customer is competent with XdsKit.")
+                            },
+                            new ClassificationNode
+                            {
+                                LocalId="urn:xdskit:com:classificationScheme:CustomerType:ProficientCustomer",
+                                Id="urn:xdskit:com:classificationScheme:CustomerType:ProficientCustomer",
+                                Code="ProficientCustomer",
+                                Name = XmlUtil.LocalString("ProficientCustomer"),
+                                Description = XmlUtil.LocalString("This is customer is proficient in all things XdsKit.")
+                            },
+                            new ClassificationNode
+                            {
+                                LocalId="urn:xdskit:com:classificationScheme:CustomerType:ExpertCustomer",
+                                Id="urn:xdskit:com:classificationScheme:CustomerType:ExpertCustomer",
+                                Code="ExpertCustomer",
+                                Name = XmlUtil.LocalString("ExpertCustomer"),
+                                Description = XmlUtil.LocalString("This is customer is an XdsKit expert.")
+                            },
+                            new ClassificationNode
+                            {
+                                LocalId="urn:xdskit:com:classificationScheme:CustomerType:Partner",
+                                Id="urn:xdskit:com:classificationScheme:CustomerType:Partner",
+                                Code="Partner",
+                                Name = XmlUtil.LocalString("Partner"),
+                                Description = XmlUtil.LocalString("This is customer is one of our XdsKit partners.")
+                            }
+                        }
+                    }
+
+                },
+                Classifications = new List<Classification>
+                {
+                    new Classification
+                    {
+                        ClassificationScheme="urn:xdskit:com:classificationScheme:CustomerType",
+                        ClassificationNode="urn:xdskit:com:classificationScheme:CustomerType:NoviceCustomer",
+                        ClassifiedObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7n"
+                    },
+                    new Classification
+                    {
+                        ClassificationScheme="urn:xdskit:com:classificationScheme:CustomerType",
+                        ClassificationNode="urn:xdskit:com:classificationScheme:CustomerType:Partner",
+                        ClassifiedObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7o"
+                    },
+                    new Classification
+                    {
+                        ClassificationScheme="urn:xdskit:com:classificationScheme:CustomerType",
+                        ClassificationNode="urn:xdskit:com:classificationScheme:CustomerType:ExpertCustomer",
+                        ClassifiedObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7p"
+                    },
+                    new Classification
+                    {
+                        ClassificationScheme="urn:xdskit:com:classificationScheme:PartnerRegion",
+                        NodeRepresentation="Northeast",
+                        ClassifiedObject="urn:xdskit:com:c7ptmx37tfbcwy8ky7o"
+                    }
+                },
+                Organizations = new List<Organization>
+                {
+                    new Organization
+                    {
+                        Id="urn:xdskit:com:c7ptmx37tfbcwy8ky7n",
+                        Home="https://services.xdskit.com/organizations",
+                        PrimaryContact="urn:xdskit:com:c7ptmx37tfbcwy8ky7a"
+                    },
+                    new Organization
+                    {
+                        Id="urn:xdskit:com:c7ptmx37tfbcwy8ky7o",
+                        Home="https://services.xdskit.com/organizations",
+                        PrimaryContact="urn:xdskit:com:c7ptmx37tfbcwy8ky7b"
+                    },
+                    new Organization
+                    {
+                        Id="urn:xdskit:com:c7ptmx37tfbcwy8ky7p",
+                        Home="https://services.xdskit.com/organizations",
+                        PrimaryContact="urn:xdskit:com:c7ptmx37tfbcwy8ky7c"
+                    }
+                }
+            };
+
+            return list;
         }
 
         private void AssertClassificationNode(ClassificationNode node, string id, string localId, string code,

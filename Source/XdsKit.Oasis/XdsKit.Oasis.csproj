@@ -88,7 +88,6 @@
     <Compile Include="RegRep\Protocols\RegistryResponse.cs" />
     <Compile Include="RegRep\Protocols\ResponseStatus.cs" />
     <Compile Include="RegRep\Services\SubmitObjectsRequest.cs" />
-    <Compile Include="StringExtensions.AsTimeSpan.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Schema\cms.xsd">
@@ -106,6 +105,12 @@
     <None Include="Schema\rs.xsd">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XdsKit\XdsKit.csproj">
+      <Project>{996a1073-c348-43e4-aaa3-37cd6f08da6d}</Project>
+      <Name>XdsKit</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,12 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace XdsKit.Oasis.RegRep.Models
 {
-    [XmlType("RegistryObjectList", Namespace = Namespaces.Rim)]
+    [XmlRoot(Namespace = Namespaces.Rim)]
     public class RegistryObjectList
     {
         // Core Information Model
+        [XmlElement("RegistryPackage")]
+        public List<RegistryPackage> RegistryPackages { get; set; }
+
         [XmlElement("ExtrinsicObject")]
         public List<ExtrinsicObject> ExtrinsicObjects { get; set; }
 
@@ -15,9 +19,6 @@ namespace XdsKit.Oasis.RegRep.Models
 
         [XmlElement("ExternalIdentifier")]
         public List<ExternalIdentifier> ExternalIdentifiers { get; set; }
-
-        [XmlElement("RegistryPackage")]
-        public List<RegistryPackage> RegistryPackages { get; set; }
 
         // Classification Model
         [XmlElement("ClassificationScheme")]
@@ -28,10 +29,6 @@ namespace XdsKit.Oasis.RegRep.Models
 
         [XmlElement("Classification")]
         public List<Classification> Classifications { get; set; }
-
-        // Association Model
-        [XmlElement("Association")]
-        public List<Association> Associations { get; set; }
 
         // Provenance Information Model
         [XmlElement("Person")]
@@ -76,5 +73,20 @@ namespace XdsKit.Oasis.RegRep.Models
         // External References
         [XmlElement("ObjectRef")]
         public List<ObjectRef> ObjectReferences { get; set; }
+
+        // Association Model
+        [XmlElement("Association")]
+        public List<Association> Associations { get; set; }
+
+        [XmlNamespaceDeclarations] 
+        public XmlSerializerNamespaces xmlns;
+
+        public RegistryObjectList()
+        {
+            xmlns = new XmlSerializerNamespaces(new []
+            {
+                new XmlQualifiedName("rim", Namespaces.Rim) 
+            });
+        }
     }
 }

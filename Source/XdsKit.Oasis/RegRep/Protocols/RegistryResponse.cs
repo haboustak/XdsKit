@@ -2,7 +2,7 @@
 
 namespace XdsKit.Oasis.RegRep.Protocols
 {
-    [XmlRoot("RegistryResponse", Namespace = Namespaces.Rs)]
+    [XmlRoot(Namespace = Namespaces.Rs)]
     public class RegistryResponse
     {
         [XmlAttribute("status")]

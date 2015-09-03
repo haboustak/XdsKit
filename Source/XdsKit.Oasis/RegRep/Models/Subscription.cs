@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 
 namespace XdsKit.Oasis.RegRep.Models
 {
-    [XmlType(Namespace = Namespaces.Rim)]
+    [XmlRoot(Namespace = Namespaces.Rim)]
     public class Subscription : RegistryObject
     {
         [XmlAttribute("selector", DataType="anyURI")]
@@ -31,6 +31,12 @@ namespace XdsKit.Oasis.RegRep.Models
             set { NotificationInterval = value.AsTimeSpan("P1D"); }
         }
 
+        [XmlIgnore]
+        public bool NotificationIntervalValueSpecified
+        {
+            get { return NotificationInterval != new TimeSpan(1, 0, 0, 0); }
+        }
+        
         [XmlElement("NotifyAction")]
         public List<NotifyAction> NotifyActions { get; set; }
 

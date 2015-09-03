@@ -2,7 +2,7 @@
 
 namespace XdsKit.Oasis.RegRep.Models
 {
-    [XmlType(Namespace = Namespaces.Rim)]
+    [XmlRoot(Namespace = Namespaces.Rim)]
     public class Classification : RegistryObject
     {
         [XmlAttribute("classificationScheme", DataType = "anyURI")]

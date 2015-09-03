@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Xml;
 
-namespace XdsKit.Oasis
+namespace XdsKit
 {
-    public static class StringExtensions
+    public static partial class StringExtensions
     {
         public static TimeSpan AsTimeSpan(this string value)
         {

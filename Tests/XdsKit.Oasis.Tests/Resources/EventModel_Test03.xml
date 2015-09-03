@@ -2,7 +2,7 @@
 <RegistryObjectList xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
   <AuditableEvent id="urn:xdskit:com:c7ptmx37tfbcwy8ky7a"
                   eventType="urn:oasis:names:tc:ebxml-regrep:EventType:Created"
-                  timestamp="2015-08-31T06:49:22-05:00"
+                  timestamp="2015-08-31T06:49:22"
                   user="urn:xdskit:com:c7ptmx37tfbcwy8ky7b"
                   requestId="urn:xdskit:com:c7ptmx37tfbcwy8ky7c">
     <affectedObjects>
@@ -12,7 +12,7 @@
   </AuditableEvent>
   <AuditableEvent id="urn:xdskit:com:c7ptmx37tfbcwy8ky7d"
                   eventType="urn:oasis:names:tc:ebxml-regrep:EventType:Deleted"
-                  timestamp="2015-08-31T06:52:07-05:00"
+                  timestamp="2015-08-31T06:52:07"
                   user="urn:xdskit:com:c7ptmx37tfbcwy8ky7e"
                   requestId="urn:xdskit:com:c7ptmx37tfbcwy8ky7f">
     <affectedObjects>

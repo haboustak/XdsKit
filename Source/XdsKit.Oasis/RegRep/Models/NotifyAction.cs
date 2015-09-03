@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 
 namespace XdsKit.Oasis.RegRep.Models
 {
-    [XmlType(Namespace = Namespaces.Rim)]
+    [XmlRoot(Namespace = Namespaces.Rim)]
     public class NotifyAction : Action
     {
         [XmlIgnore]
@@ -16,7 +16,7 @@ namespace XdsKit.Oasis.RegRep.Models
         [XmlIgnore]
         public bool NotificationOptionSpecified
         {
-            get { return !(NotificationOption ?? "").Equals(NotifcationOptionDefault, StringComparison.OrdinalIgnoreCase); }
+            get { return NotificationOption.Specified(NotifcationOptionDefault); }
         }
 
         [XmlAttribute("endPoint", DataType = "anyURI")]

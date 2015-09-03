@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace XdsKit.Oasis.RegRep.Models
 {
-    [XmlType(Namespace = Namespaces.Rim)]
+    [XmlRoot(Namespace = Namespaces.Rim)]
     public class Person : RegistryObject
     {
         [XmlElement("PersonName")]

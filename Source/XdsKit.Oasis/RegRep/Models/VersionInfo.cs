@@ -1,14 +1,21 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace XdsKit.Oasis.RegRep.Models
 {
-    [XmlType(Namespace = Namespaces.Rim)]
+    [XmlRoot(Namespace = Namespaces.Rim)]
     public class VersionInfo
     {
-        [XmlAttribute("versionName", DataType = "string")]
+        [XmlAttribute("versionName"), DefaultValue("1.1")]
         public string VersionName { get; set; }
 
-        [XmlAttribute("comment", DataType = "string")]
+        public bool VersionNameSpecified
+        {
+            get { return VersionName.Specified("1.1"); }
+        }
+
+        [XmlAttribute("comment")]
         public string Comment { get; set; }
     }
 }
