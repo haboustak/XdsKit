@@ -3,6 +3,7 @@ using System.Runtime;
 using System.Xml.Linq;
 
 using NUnit.Framework;
+using XdsKit.Oasis.RegRep;
 using XdsKit.Oasis.RegRep.Models;
 using XdsKit.Oasis.RegRep.Services;
 
@@ -42,11 +43,11 @@ namespace XdsKit.Oasis.Tests.RegRep.Services
 
             Assert.AreEqual(3, request.RegistryObjects.Associations.Count);
             OasisAssert.Association(request.RegistryObjects.Associations[0],
-                "urn:xdskit:com:c7ptmx37tfbcwy8ky7h", "urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember", "urn:xdskit:com:SubmissionSet:c7ptmx37tfbcwy8ky7d", "urn:xdskit:com:Folder:c7ptmx37tfbcwy8ky7g");
+                "urn:xdskit:com:c7ptmx37tfbcwy8ky7h", AssociationType.HasMember, "urn:xdskit:com:SubmissionSet:c7ptmx37tfbcwy8ky7d", "urn:xdskit:com:Folder:c7ptmx37tfbcwy8ky7g");
             OasisAssert.Association(request.RegistryObjects.Associations[1],
-                "urn:xdskit:com:c7ptmx37tfbcwy8ky7i", "urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember", "urn:xdskit:com:Folder:c7ptmx37tfbcwy8ky7g", "urn:xdskit:com:Document:c7ptmx37tfbcwy8ky7b");
+                "urn:xdskit:com:c7ptmx37tfbcwy8ky7i", AssociationType.HasMember, "urn:xdskit:com:Folder:c7ptmx37tfbcwy8ky7g", "urn:xdskit:com:Document:c7ptmx37tfbcwy8ky7b");
             OasisAssert.Association(request.RegistryObjects.Associations[2],
-                "urn:xdskit:com:c7ptmx37tfbcwy8ky7j", "urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember", "urn:xdskit:com:SubmissionSet:c7ptmx37tfbcwy8ky7d", "urn:xdskit:com:Document:c7ptmx37tfbcwy8ky7b");
+                "urn:xdskit:com:c7ptmx37tfbcwy8ky7j", AssociationType.HasMember, "urn:xdskit:com:SubmissionSet:c7ptmx37tfbcwy8ky7d", "urn:xdskit:com:Document:c7ptmx37tfbcwy8ky7b");
         }
         
         [Test]
@@ -145,21 +146,21 @@ namespace XdsKit.Oasis.Tests.RegRep.Services
                         new Association
                         {
                             Id = "urn:xdskit:com:c7ptmx37tfbcwy8ky7h",
-                            Type = "urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember",
+                            AssociationType = AssociationType.HasMember,
                             Source = "urn:xdskit:com:SubmissionSet:c7ptmx37tfbcwy8ky7d",
                             Target = "urn:xdskit:com:Folder:c7ptmx37tfbcwy8ky7g"
                         },
                         new Association
                         {
                             Id = "urn:xdskit:com:c7ptmx37tfbcwy8ky7i",
-                            Type = "urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember",
+                            AssociationType = AssociationType.HasMember,
                             Source = "urn:xdskit:com:Folder:c7ptmx37tfbcwy8ky7g",
                             Target = "urn:xdskit:com:Document:c7ptmx37tfbcwy8ky7b"
                         },
                         new Association
                         {
                             Id = "urn:xdskit:com:c7ptmx37tfbcwy8ky7j",
-                            Type = "urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember",
+                            AssociationType = AssociationType.HasMember,
                             Source = "urn:xdskit:com:SubmissionSet:c7ptmx37tfbcwy8ky7d",
                             Target = "urn:xdskit:com:Document:c7ptmx37tfbcwy8ky7b",
                             Slots = new List<Slot>

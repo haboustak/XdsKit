@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using NUnit.Framework;
-
+using XdsKit.Oasis.RegRep;
 using XdsKit.Oasis.RegRep.Models;
 using XdsKit.Oasis.RegRep.Services;
 
@@ -14,10 +14,10 @@ namespace XdsKit.Oasis.Tests
             
         }
 
-        public static void Association(Association association, string id, string type, string source, string target)
+        public static void Association(Association association, string id, AssociationType type, string source, string target)
         {
             Assert.AreEqual(id ?? "", association.Id ?? "");
-            Assert.AreEqual(type ?? "", association.Type ?? "");
+            Assert.AreEqual(type, association.AssociationType);
             Assert.AreEqual(source ?? "", association.Source ?? "");
             Assert.AreEqual(target ?? "", association.Target ?? "");
         }

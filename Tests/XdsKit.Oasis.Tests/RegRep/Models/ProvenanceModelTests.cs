@@ -2,7 +2,7 @@
 using System.Xml.Linq;
 
 using NUnit.Framework;
-
+using XdsKit.Oasis.RegRep;
 using XdsKit.Oasis.RegRep.Models;
 
 namespace XdsKit.Oasis.Tests.RegRep.Models
@@ -110,10 +110,10 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
 
             Assert.AreEqual(2, list.Associations.Count);
             OasisAssert.Association(list.Associations[0], "urn:xdskit:com:c7ptmx37tfbcwy8ky7o",
-                "urn:oasis:names:tc:ebxml-regrep:AssociationType:AffiliatedWith", 
+                AssociationType.AffiliatedWith, 
                 list.Persons[0].Id, list.Organizations[0].Id);
             OasisAssert.Association(list.Associations[1], "urn:xdskit:com:c7ptmx37tfbcwy8ky7q",
-                "urn:oasis:names:tc:ebxml-regrep:AssociationType:AffiliatedWith",
+                AssociationType.AffiliatedWith, 
                 list.Users[0].Id, list.Organizations[0].Id);
         }
 
@@ -354,14 +354,14 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
                     new Association
                     {
                         Id = "urn:xdskit:com:c7ptmx37tfbcwy8ky7o",
-                        Type = "urn:oasis:names:tc:ebxml-regrep:AssociationType:AffiliatedWith",
+                        AssociationType = AssociationType.AffiliatedWith,
                         Source = "urn:xdskit:com:c7ptmx37tfbcwy8ky7m",
                         Target = "urn:xdskit:com:c7ptmx37tfbcwy8ky7n"
                     },
                     new Association
                     {
                         Id = "urn:xdskit:com:c7ptmx37tfbcwy8ky7q",
-                        Type = "urn:oasis:names:tc:ebxml-regrep:AssociationType:AffiliatedWith",
+                        AssociationType = AssociationType.AffiliatedWith,
                         Source = "urn:xdskit:com:c7ptmx37tfbcwy8ky7p",
                         Target = "urn:xdskit:com:c7ptmx37tfbcwy8ky7n"
                     }

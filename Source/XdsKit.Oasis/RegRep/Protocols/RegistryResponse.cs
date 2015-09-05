@@ -8,23 +8,22 @@ namespace XdsKit.Oasis.RegRep.Protocols
     [XmlRoot(Namespace = Namespaces.Rs)]
     public class RegistryResponse
     {
+        private ResponseStatus _status;
+
         [XmlAttribute("status", DataType="anyURI")]
         public string StatusValue { get; set; }
 
         [XmlIgnore]
         public ResponseStatus Status
         {
-            get
-            {
-                if (string.IsNullOrEmpty(StatusValue)) return ResponseStatus.Unspecified;
-                return StatusValue.AsEnum(ResponseStatus.Unknown);
-            }
+            get { return _status ?? (_status = UriEnumeration.Parse(StatusValue) as ResponseStatus); }
             set
             {
-                if (value == ResponseStatus.Unknown || value == ResponseStatus.Unspecified) StatusValue = "";
-                else StatusValue = value.Description();
+                _status = null;
+                StatusValue = value != null ? value.Uri : null;
             }
         }
+
 
         [XmlAttribute("requestId", DataType = "anyURI")]
         public string RequestId { get; set; }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 
 using NUnit.Framework;
-
+using XdsKit.Oasis.RegRep;
 using XdsKit.Oasis.RegRep.Models;
 
 namespace XdsKit.Oasis.Tests.RegRep.Models
@@ -39,10 +39,8 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
             Assert.AreEqual(false, federation.ReplicationSyncLatencyValueSpecified);
 
             Assert.AreEqual(2, list.Associations.Count);
-            OasisAssert.Association(list.Associations[0], "",
-                "urn:oasis:names:tc:ebxml-regrep:AssociationType:HasFederationMember", "urn:xdskit:com:c7ptmx37tfbcwy8ky7g", "urn:xdskit:com:c7ptmx37tfbcwy8ky7a");
-            OasisAssert.Association(list.Associations[1], "",
-                "urn:oasis:names:tc:ebxml-regrep:AssociationType:HasFederationMember", "urn:xdskit:com:c7ptmx37tfbcwy8ky7g", "urn:xdskit:com:c7ptmx37tfbcwy8ky7d");
+            OasisAssert.Association(list.Associations[0], "", AssociationType.HasFederationMember, "urn:xdskit:com:c7ptmx37tfbcwy8ky7g", "urn:xdskit:com:c7ptmx37tfbcwy8ky7a");
+            OasisAssert.Association(list.Associations[1], "", AssociationType.HasFederationMember, "urn:xdskit:com:c7ptmx37tfbcwy8ky7g", "urn:xdskit:com:c7ptmx37tfbcwy8ky7d");
 
         }
 
@@ -104,13 +102,13 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
                 {
                     new Association
                     {
-                        Type="urn:oasis:names:tc:ebxml-regrep:AssociationType:HasFederationMember",
+                        AssociationType = AssociationType.HasFederationMember,
                         Source="urn:xdskit:com:c7ptmx37tfbcwy8ky7g",
                         Target="urn:xdskit:com:c7ptmx37tfbcwy8ky7a"
                     },
                     new Association
                     {
-                        Type="urn:oasis:names:tc:ebxml-regrep:AssociationType:HasFederationMember",
+                        AssociationType = AssociationType.HasFederationMember,
                         Source="urn:xdskit:com:c7ptmx37tfbcwy8ky7g",
                         Target="urn:xdskit:com:c7ptmx37tfbcwy8ky7d"
                     }

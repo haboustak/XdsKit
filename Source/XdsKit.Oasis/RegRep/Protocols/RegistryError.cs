@@ -6,6 +6,8 @@ namespace XdsKit.Oasis.RegRep.Protocols
     [XmlRoot(Namespace = Namespaces.Rs)]
     public class RegistryError
     {
+        private ErrorSeverity _severity;
+
         private const string SeverityError = "urn:oasis:names:tc:ebxml-regrep:ErrorSeverityType:Error";
 
         [XmlAttribute("codeContext")]
@@ -18,20 +20,16 @@ namespace XdsKit.Oasis.RegRep.Protocols
         [XmlAttribute("severity", DataType="anyURI"), DefaultValue(SeverityError)]
         public string SeverityValue { get; set; }
 
+
         [XmlIgnore]
         public ErrorSeverity Severity
         {
-            get
-            {
-                if (string.IsNullOrEmpty(SeverityValue)) return ErrorSeverity.Unspecified;
-                return SeverityValue.AsEnum(ErrorSeverity.Unknown);
-            }
+            get { return _severity ?? (_severity = UriEnumeration.Parse(SeverityValue) as ErrorSeverity); }
             set
             {
-                if (value == ErrorSeverity.Unknown || value == ErrorSeverity.Unspecified) SeverityValue = "";
-                else SeverityValue = value.Description();
+                _severity = null;
+                SeverityValue = value != null ? value.Uri : null;
             }
-            
         }
 
         [XmlAttribute("location")]

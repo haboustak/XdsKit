@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace XdsKit.Oasis.RegRep
 {
-    public enum ErrorSeverity
+    public class ErrorSeverity : UriEnumeration
     {
-        Unspecified,
+        protected ErrorSeverity(string uri)
+            : base(uri)
+        { }
 
-        Unknown,
+        public static ErrorSeverity Error =
+            new ErrorSeverity("urn:oasis:names:tc:ebxml-regrep:ErrorSeverityType:Error");
 
-        [Description("urn:oasis:names:tc:ebxml-regrep:ErrorSeverityType:Error")]
-        Error,
-
-        [Description("urn:oasis:names:tc:ebxml-regrep:ErrorSeverityType:Warning")]
-        Warning
+        public static ErrorSeverity Warning =
+            new ErrorSeverity("urn:oasis:names:tc:ebxml-regrep:ErrorSeverityType:Warning");
     }
 }

@@ -3,19 +3,16 @@ using System.Xml.Serialization;
 
 namespace XdsKit.Oasis.RegRep
 {
-    public enum ResponseStatus
+    public class ResponseStatus : UriEnumeration
     {
-        Unspecified,
+        public ResponseStatus(string uri)
+            : base(uri)
+        { }
+        
+        public static ResponseStatus Success = new ResponseStatus("urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success");
+        
+        public static ResponseStatus PartialSuccess = new ResponseStatus("urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:PartialSuccess");
 
-        Unknown,
-        
-        [Description("urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success")]
-        Success,
-        
-        [Description("urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:PartialSuccess")]
-        PartialSuccess,
-        
-        [Description("urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Failure")]
-        Failure
+        public static ResponseStatus Failure = new ResponseStatus("urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Failure");
     }
 }

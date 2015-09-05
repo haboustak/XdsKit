@@ -2,7 +2,7 @@
 using System.Xml.Linq;
 
 using NUnit.Framework;
-
+using XdsKit.Oasis.RegRep;
 using XdsKit.Oasis.RegRep.Models;
 
 
@@ -18,10 +18,8 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
             Assert.AreEqual(1, list.RegistryPackages.Count);
             Assert.AreEqual(2, list.ExtrinsicObjects.Count);
             Assert.AreEqual(2, list.Associations.Count);
-            OasisAssert.Association(list.Associations[0], "",
-                "urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember", "urn:xdskit:com:c7ptmx37tfbcwy8ky7m", "urn:xdskit:com:c7ptmx37tfbcwy8ky7n");
-            OasisAssert.Association(list.Associations[1], "",
-                "urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember", "urn:xdskit:com:c7ptmx37tfbcwy8ky7m", "urn:xdskit:com:c7ptmx37tfbcwy8ky7p");
+            OasisAssert.Association(list.Associations[0], "", AssociationType.HasMember, "urn:xdskit:com:c7ptmx37tfbcwy8ky7m", "urn:xdskit:com:c7ptmx37tfbcwy8ky7n");
+            OasisAssert.Association(list.Associations[1], "", AssociationType.HasMember, "urn:xdskit:com:c7ptmx37tfbcwy8ky7m", "urn:xdskit:com:c7ptmx37tfbcwy8ky7p");
         }
 
         [Test]
@@ -81,13 +79,13 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
                 {
                     new Association
                     {
-                        Type = "urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember",
+                        AssociationType = AssociationType.HasMember,
                         Source = "urn:xdskit:com:c7ptmx37tfbcwy8ky7m",
                         Target = "urn:xdskit:com:c7ptmx37tfbcwy8ky7n"
                     },
                     new Association
                     {
-                        Type = "urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember",
+                        AssociationType = AssociationType.HasMember,
                         Source = "urn:xdskit:com:c7ptmx37tfbcwy8ky7m",
                         Target = "urn:xdskit:com:c7ptmx37tfbcwy8ky7p"
                     }
