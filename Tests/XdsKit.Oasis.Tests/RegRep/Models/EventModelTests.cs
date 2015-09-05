@@ -14,7 +14,7 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
         [Test]
         public void Should_Deserialize_Test01()
         {
-            var list = Resource.Deserialize<RegistryObjectList>("Resources.EventModel_Test01.xml");
+            var list = Resource.Deserialize<RegistryObjectList>("Resources.Models.EventModel_Test01.xml");
 
             Assert.AreEqual(1, list.Subscriptions.Count);
 
@@ -29,11 +29,11 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
             Assert.AreEqual(new TimeSpan(1, 0, 0), subscription.NotificationInterval);
 
             Assert.AreEqual(2, subscription.NotifyActions.Count);
-            AssertNotifyAction(subscription.NotifyActions[0], 
+            OasisAssert.NotifyAction(subscription.NotifyActions[0], 
                 "mailto:haboustak@xdskit.com",
                 "urn:oasis:names:tc:ebxml-regrep:NotificationOptionType:Objects");
             Assert.AreEqual(true, subscription.NotifyActions[0].NotificationOptionSpecified);
-            AssertNotifyAction(subscription.NotifyActions[1],
+            OasisAssert.NotifyAction(subscription.NotifyActions[1],
                 "urn:xdskit:com:c7ptmx37tfbcwy8ky7n",
                 "urn:oasis:names:tc:ebxml-regrep:NotificationOptionType:ObjectRefs");
             Assert.AreEqual(false, subscription.NotifyActions[1].NotificationOptionSpecified);
@@ -50,7 +50,7 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
         {
             var list = Build_Test01();
             list.ToXml()
-                .AssertByLine(XDocument.Parse(Resource.Get("Resources.EventModel_Test01.xml")));
+                .AssertByLine(XDocument.Parse(Resource.Get("Resources.Models.EventModel_Test01.xml")));
         }
 
         [Test]
@@ -110,7 +110,7 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
         [Test]
         public void Should_Deserialize_Test02()
         {
-            var list = Resource.Deserialize<RegistryObjectList>("Resources.EventModel_Test02.xml");
+            var list = Resource.Deserialize<RegistryObjectList>("Resources.Models.EventModel_Test02.xml");
 
             Assert.AreEqual(1, list.Notifications.Count);
             var notification = list.Notifications[0];
@@ -126,7 +126,7 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
         {
             var list = Build_Test02();
             list.ToXml()
-                .AssertByLine(XDocument.Parse(Resource.Get("Resources.EventModel_Test02.xml")));
+                .AssertByLine(XDocument.Parse(Resource.Get("Resources.Models.EventModel_Test02.xml")));
         }
 
         [Test]
@@ -173,11 +173,11 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
         [Test]
         public void Should_Deserialize_Test03()
         {
-            var list = Resource.Deserialize<RegistryObjectList>("Resources.EventModel_Test03.xml");
+            var list = Resource.Deserialize<RegistryObjectList>("Resources.Models.EventModel_Test03.xml");
 
             Assert.AreEqual(2, list.AuditableEvents.Count);
             var audit = list.AuditableEvents[0];
-            AssertAuditableEvent(audit,
+            OasisAssert.AuditableEvent(audit,
                 "urn:xdskit:com:c7ptmx37tfbcwy8ky7a",
                 "urn:oasis:names:tc:ebxml-regrep:EventType:Created", 
                 new DateTime(2015,08,31,6,49,22),
@@ -188,7 +188,7 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
             Assert.AreEqual("urn:xdskit:com:c7ptmx37tfbcwy8ky7p", audit.AffectedObjects[1].Id);
 
             audit = list.AuditableEvents[1];
-            AssertAuditableEvent(audit,
+            OasisAssert.AuditableEvent(audit,
                 "urn:xdskit:com:c7ptmx37tfbcwy8ky7d",
                 "urn:oasis:names:tc:ebxml-regrep:EventType:Deleted",
                 new DateTime(2015, 08, 31, 6, 52, 07),
@@ -203,7 +203,7 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
         {
             var list = Build_Test03();
             list.ToXml()
-                .AssertByLine(XDocument.Parse(Resource.Get("Resources.EventModel_Test03.xml")));
+                .AssertByLine(XDocument.Parse(Resource.Get("Resources.Models.EventModel_Test03.xml")));
         }
 
         [Test]
@@ -251,22 +251,6 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
             };
 
             return list;
-        }
-
-        private void AssertNotifyAction(NotifyAction action, string endPoint, string notificationOption)
-        {
-            Assert.AreEqual(endPoint ?? "", action.Endpoint ?? "");
-            Assert.AreEqual(notificationOption ?? "", action.NotificationOption ?? "");
-        }
-
-        private void AssertAuditableEvent(AuditableEvent audit,
-            string id, string eventType, DateTime timestamp, string userId, string requestId)
-        {
-            Assert.AreEqual(id ?? "", audit.Id ?? "");
-            Assert.AreEqual(eventType ?? "", audit.EventType ?? "");
-            Assert.AreEqual(timestamp, audit.Timestamp);
-            Assert.AreEqual(userId ?? "", audit.User ?? "");
-            Assert.AreEqual(requestId ?? "", audit.RequestId ?? "");
         }
     }
 }

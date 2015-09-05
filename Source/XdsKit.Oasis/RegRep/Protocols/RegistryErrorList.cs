@@ -6,9 +6,24 @@ namespace XdsKit.Oasis.RegRep.Protocols
     [XmlRoot(Namespace = Namespaces.Rs)]
     public class RegistryErrorList
     {
-        [XmlAttribute("highestSeverity")]
-        public string HighestSeverity { get; set; }
+        private ErrorSeverity _highestSeverity;
 
-        public List<RegistryError> RegistryErrors { get; set; }
+        [XmlAttribute("highestSeverity", DataType="anyURI")]
+        public string HighestSeverityValue { get; set; }
+
+        [XmlIgnore]
+        public ErrorSeverity HighestSeverity
+        {
+            get { return _highestSeverity ?? (_highestSeverity = UriEnumeration.Parse(HighestSeverityValue) as ErrorSeverity); }
+            set
+            {
+                _highestSeverity = null;
+                HighestSeverityValue = value != null ? value.Uri : null;
+            }
+        }
+
+
+        [XmlElement("RegistryError")]
+        public List<RegistryError> Errors { get; set; }
     }
 }

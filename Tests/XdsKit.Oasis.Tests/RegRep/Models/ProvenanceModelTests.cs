@@ -2,7 +2,7 @@
 using System.Xml.Linq;
 
 using NUnit.Framework;
-
+using XdsKit.Oasis.RegRep;
 using XdsKit.Oasis.RegRep.Models;
 
 namespace XdsKit.Oasis.Tests.RegRep.Models
@@ -13,7 +13,7 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
         [Test]
         public void Should_Deserialize_Test01()
         {
-            var list = Resource.Deserialize<RegistryObjectList>("Resources.ProvenanceModel_Test01.xml");
+            var list = Resource.Deserialize<RegistryObjectList>("Resources.Models.ProvenanceModel_Test01.xml");
 
             Assert.AreEqual(1, list.Organizations.Count);
 
@@ -36,16 +36,16 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
             Assert.IsNullOrEmpty(org.Parent);
             Assert.AreEqual("urn:xdskit:com:c7ptmx37tfbcwy8ky7m", org.PrimaryContact);
             Assert.AreEqual(2, org.Addresses.Count);
-            AssertPostalAddress(org.Addresses[0], "123", "Sesame St", "New York", "NY", "10212", "US");
-            AssertPostalAddress(org.Addresses[1], "400", "Principal Way", "Philadelphia", "PA", "19101", "US");
+            OasisAssert.PostalAddress(org.Addresses[0], "123", "Sesame St", "New York", "NY", "10212", "US");
+            OasisAssert.PostalAddress(org.Addresses[1], "400", "Principal Way", "Philadelphia", "PA", "19101", "US");
 
             Assert.AreEqual(3, org.TelephoneNumbers.Count);
-            AssertTelephone(org.TelephoneNumbers[0], "1", "513", "555-1212", "", "Home");
-            AssertTelephone(org.TelephoneNumbers[1], "44", "212", "555-3000", "2010", "Work");
-            AssertTelephone(org.TelephoneNumbers[2], "2", "212", "555-8080", "30", "Fax");
+            OasisAssert.Telephone(org.TelephoneNumbers[0], "1", "513", "555-1212", "", "Home");
+            OasisAssert.Telephone(org.TelephoneNumbers[1], "44", "212", "555-3000", "2010", "Work");
+            OasisAssert.Telephone(org.TelephoneNumbers[2], "2", "212", "555-8080", "30", "Fax");
 
             Assert.AreEqual(1, org.EmailAddresses.Count);
-            AssertEmail(org.EmailAddresses[0], "haboustak@xdskit.com", "Company");
+            OasisAssert.Email(org.EmailAddresses[0], "haboustak@xdskit.com", "Company");
 
             Assert.AreEqual(1, list.Persons.Count);
             var person = list.Persons[0];
@@ -69,13 +69,13 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
             Assert.AreEqual("Haboustak", person.PersonName.LastName);
 
             Assert.AreEqual(2, person.Addresses.Count);
-            AssertPostalAddress(person.Addresses[0], "123", "Sesame St", "New York", "NY", "10212", "US");
-            AssertPostalAddress(person.Addresses[1], "400", "Principal Way", "Philadelphia", "PA", "19101", "US");
+            OasisAssert.PostalAddress(person.Addresses[0], "123", "Sesame St", "New York", "NY", "10212", "US");
+            OasisAssert.PostalAddress(person.Addresses[1], "400", "Principal Way", "Philadelphia", "PA", "19101", "US");
 
             Assert.AreEqual(3, person.TelephoneNumbers.Count);
-            AssertTelephone(person.TelephoneNumbers[0], "1", "513", "555-1212", "1040", "Home");
-            AssertTelephone(person.TelephoneNumbers[1], "44", "212", "555-3000", "2010", "Work");
-            AssertTelephone(person.TelephoneNumbers[2], "2", "212", "555-8080", "30", "Fax");
+            OasisAssert.Telephone(person.TelephoneNumbers[0], "1", "513", "555-1212", "1040", "Home");
+            OasisAssert.Telephone(person.TelephoneNumbers[1], "44", "212", "555-3000", "2010", "Work");
+            OasisAssert.Telephone(person.TelephoneNumbers[2], "2", "212", "555-8080", "30", "Fax");
 
             Assert.AreEqual(1, list.Users.Count);
 
@@ -100,20 +100,20 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
             Assert.AreEqual("Haboustak", user.PersonName.LastName);
 
             Assert.AreEqual(2, user.Addresses.Count);
-            AssertPostalAddress(user.Addresses[0], "123", "Sesame St", "New York", "NY", "10212", "US");
-            AssertPostalAddress(user.Addresses[1], "400", "Principal Way", "Philadelphia", "PA", "19101", "US");
+            OasisAssert.PostalAddress(user.Addresses[0], "123", "Sesame St", "New York", "NY", "10212", "US");
+            OasisAssert.PostalAddress(user.Addresses[1], "400", "Principal Way", "Philadelphia", "PA", "19101", "US");
 
             Assert.AreEqual(3, user.TelephoneNumbers.Count);
-            AssertTelephone(user.TelephoneNumbers[0], "1", "513", "555-1212", "1040", "Home");
-            AssertTelephone(user.TelephoneNumbers[1], "44", "212", "555-3000", "2010", "Work");
-            AssertTelephone(user.TelephoneNumbers[2], "2", "212", "555-8080", "30", "Fax");
+            OasisAssert.Telephone(user.TelephoneNumbers[0], "1", "513", "555-1212", "1040", "Home");
+            OasisAssert.Telephone(user.TelephoneNumbers[1], "44", "212", "555-3000", "2010", "Work");
+            OasisAssert.Telephone(user.TelephoneNumbers[2], "2", "212", "555-8080", "30", "Fax");
 
             Assert.AreEqual(2, list.Associations.Count);
-            AssertAssociation(list.Associations[0],
-                "urn:oasis:names:tc:ebxml-regrep:AssociationType:AffiliatedWith", "urn:xdskit:com:c7ptmx37tfbcwy8ky7o",
+            OasisAssert.Association(list.Associations[0], "urn:xdskit:com:c7ptmx37tfbcwy8ky7o",
+                AssociationType.AffiliatedWith, 
                 list.Persons[0].Id, list.Organizations[0].Id);
-            AssertAssociation(list.Associations[1],
-                "urn:oasis:names:tc:ebxml-regrep:AssociationType:AffiliatedWith", "urn:xdskit:com:c7ptmx37tfbcwy8ky7q",
+            OasisAssert.Association(list.Associations[1], "urn:xdskit:com:c7ptmx37tfbcwy8ky7q",
+                AssociationType.AffiliatedWith, 
                 list.Users[0].Id, list.Organizations[0].Id);
         }
 
@@ -122,7 +122,7 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
         {
             var list = Build_Test01();
             list.ToXml()
-                .AssertByLine(XDocument.Parse(Resource.Get("Resources.ProvenanceModel_Test01.xml")));
+                .AssertByLine(XDocument.Parse(Resource.Get("Resources.Models.ProvenanceModel_Test01.xml")));
         }
 
         [Test]
@@ -354,14 +354,14 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
                     new Association
                     {
                         Id = "urn:xdskit:com:c7ptmx37tfbcwy8ky7o",
-                        Type = "urn:oasis:names:tc:ebxml-regrep:AssociationType:AffiliatedWith",
+                        AssociationType = AssociationType.AffiliatedWith,
                         Source = "urn:xdskit:com:c7ptmx37tfbcwy8ky7m",
                         Target = "urn:xdskit:com:c7ptmx37tfbcwy8ky7n"
                     },
                     new Association
                     {
                         Id = "urn:xdskit:com:c7ptmx37tfbcwy8ky7q",
-                        Type = "urn:oasis:names:tc:ebxml-regrep:AssociationType:AffiliatedWith",
+                        AssociationType = AssociationType.AffiliatedWith,
                         Source = "urn:xdskit:com:c7ptmx37tfbcwy8ky7p",
                         Target = "urn:xdskit:com:c7ptmx37tfbcwy8ky7n"
                     }
@@ -369,43 +369,6 @@ namespace XdsKit.Oasis.Tests.RegRep.Models
             };
 
             return list;
-        }
-
-        private void AssertPostalAddress(PostalAddress address,
-            string streetnumber, string street, string city, string state, string zip, string country)
-        {
-            Assert.AreEqual(streetnumber ?? "", address.StreetNumber ?? "");
-            Assert.AreEqual(street ?? "", address.Street ?? "");
-            Assert.AreEqual(state ?? "", address.StateOrProvince ?? "");
-            Assert.AreEqual(city ?? "", address.City ?? "");
-            Assert.AreEqual(zip ?? "", address.PostalCode ?? "");
-            Assert.AreEqual(country ?? "", address.Country ?? "");
-        }
-
-        private void AssertTelephone(TelephoneNumber phone,
-            string country, string area, string number, string extension, string type)
-        {
-            Assert.AreEqual(country ?? "", phone.CountryCode ?? "");
-            Assert.AreEqual(area ?? "", phone.AreaCode ?? "");
-            Assert.AreEqual(number ?? "", phone.Number ?? "");
-            Assert.AreEqual(extension ?? "", phone.Extension ?? "");
-            Assert.AreEqual(type ?? "", phone.PhoneType ?? "");
-        }
-
-        private void AssertEmail(EmailAddress address,
-            string email, string type)
-        {
-            Assert.AreEqual(email ?? "", address.Address ?? "");
-            Assert.AreEqual(type ?? "", address.Type ?? "");
-        }
-
-        private void AssertAssociation(Association association,
-            string type, string id, string sourceId, string targetId)
-        {
-            Assert.AreEqual(type ?? "", association.Type ?? "");
-            Assert.AreEqual(id ?? "", association.Id ?? "");
-            Assert.AreEqual(sourceId ?? "", association.Source ?? "");
-            Assert.AreEqual(targetId ?? "", association.Target ?? "");
         }
     }
 }

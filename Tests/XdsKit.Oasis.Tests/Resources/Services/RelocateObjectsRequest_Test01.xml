@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<RelocateObjectsRequest xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0"
+                 xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0"
+                 xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0"
+                 id="urn:xdskit:com:c7ptmx37tfbcwy8ky7a"
+                 comment="This relocates">
+      <!-- All documents for patient id=st3498702 -->
+    <rim:AdhocQuery id="urn:xdskit:com:c7ptmx37tfbcwy8ky7b">
+    <rim:Slot name="$XDSDocumentEntryPatientId">
+      <rim:ValueList>
+        <rim:Value>st3498702^^^&amp;1.3.6.1.4.1.21367.2005.3.7&amp;ISO</rim:Value>
+      </rim:ValueList>
+    </rim:Slot>
+  </rim:AdhocQuery>
+  <rim:SourceRegistry id="urn:xdskit:com:c7ptmx37tfbcwy8ky7c"></rim:SourceRegistry>
+  <rim:DestinationRegistry id="urn:xdskit:com:c7ptmx37tfbcwy8ky7d"></rim:DestinationRegistry>
+  <rim:OwnerAtSource id="urn:xdskit:com:c7ptmx37tfbcwy8ky7e"></rim:OwnerAtSource>
+  <rim:OwnerAtDestination id="urn:xdskit:com:c7ptmx37tfbcwy8ky7f"></rim:OwnerAtDestination>
+ </RelocateObjectsRequest>

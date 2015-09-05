@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RegistryRequest xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0"
+                 xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0"
+                 id="urn:xdskit:com:c7ptmx37tfbcwy8ky7a"
+                 comment="This is a comment">
+  <rim:RequestSlotList>
+    <rim:Slot name="creationTime" slotType="urn:xdskit:com:c7ptmx37tfbcwy8ky7b">
+				<rim:ValueList>
+					<rim:Value>2015-01-01</rim:Value>
+				</rim:ValueList>
+			</rim:Slot>
+			<rim:Slot name="languageCode" slotType="urn:xdskit:com:c7ptmx37tfbcwy8ky7c">
+				<rim:ValueList>
+					<rim:Value>en-US</rim:Value>
+					<rim:Value>en-GB</rim:Value>
+					<rim:Value>en-AU</rim:Value>
+				</rim:ValueList>
+			</rim:Slot>
+			<rim:Slot name="serviceStartTime">
+				<rim:ValueList>
+					<rim:Value>2015-01-01T09:00:00</rim:Value>
+				</rim:ValueList>
+			</rim:Slot>
+			<rim:Slot name="serviceStopTime">
+				<rim:ValueList>
+					<rim:Value>2015-01-01T21:00:00</rim:Value>
+				</rim:ValueList>
+			</rim:Slot>
+  </rim:RequestSlotList>
+</RegistryRequest>
