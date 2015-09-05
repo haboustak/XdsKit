@@ -50,8 +50,15 @@
     </Compile>
     <Compile Include="RegRep\Protocols\RegistryRequestTests.cs" />
     <Compile Include="RegRep\Protocols\RegistryResponseTests.cs" />
+    <Compile Include="RegRep\Services\AcceptObjectsRequestTests.cs" />
     <Compile Include="RegRep\Services\AdhocQueryRequestTests.cs" />
+    <Compile Include="RegRep\Services\ApproveObjectsRequestTests.cs" />
+    <Compile Include="RegRep\Services\DeprecateObjectsRequestTests.cs" />
+    <Compile Include="RegRep\Services\RelocateObjectsRequestTests.cs" />
+    <Compile Include="RegRep\Services\RemoveObjectsRequestTests.cs" />
     <Compile Include="RegRep\Services\SubmitObjectsRequestTests.cs" />
+    <Compile Include="RegRep\Services\UndeprecateObjectsRequestTests.cs" />
+    <Compile Include="RegRep\Services\UpdateObjectsRequestTests.cs" />
     <Compile Include="XDocumentExtensions.AssertByLine.cs" />
     <Compile Include="OasisAssert.cs" />
     <Compile Include="XmlUtil.cs" />
@@ -118,6 +125,21 @@
     <EmbeddedResource Include="Resources\Services\AdhocQueryRequest_Test01.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Services\ApproveObjectsRequest_Test01.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Services\UpdateObjectsRequest_Test01.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Services\AcceptObjectsRequest_Test01.xml" />
+    <EmbeddedResource Include="Resources\Services\DeprecateObjectsRequest_Test01.xml" />
+    <EmbeddedResource Include="Resources\Services\RelocateObjectsRequest_Test01.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Services\RemoveObjectsRequest_Test01.xml" />
+    <EmbeddedResource Include="Resources\Services\UndeprecateObjectsRequest_Test01.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

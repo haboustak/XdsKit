@@ -11,7 +11,7 @@ namespace XdsKit.Oasis.Tests
     {
         public static void AdhocQuery(AdhocQuery query, string id)
         {
-            
+            Assert.AreEqual(id ?? "", query.Id ?? "");
         }
 
         public static void Association(Association association, string id, AssociationType type, string source, string target)
@@ -81,7 +81,11 @@ namespace XdsKit.Oasis.Tests
             Assert.AreEqual(notificationOption ?? "", action.NotificationOption ?? "");
         }
 
-
+        public static void ObjectRef(ObjectRef action, string id, bool createReplica=false)
+        {
+            Assert.AreEqual(id ?? "", action.Id ?? "");
+            Assert.AreEqual(action.CreateReplica, createReplica);
+        }
 
         public static void Registry(Registry registry,
             string id, string oper, string specificationVersion, TimeSpan replicationSyncLatency, TimeSpan catalogingLatency, string conformanceProfile)

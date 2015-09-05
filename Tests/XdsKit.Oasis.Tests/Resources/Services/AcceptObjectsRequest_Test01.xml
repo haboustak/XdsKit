@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<AcceptObjectsRequest xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0"
+                 xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0"
+                 xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0"
+                 id="urn:xdskit:com:c7ptmx37tfbcwy8ky7a"
+                 comment="Shortest request in ebRs"
+                 correlationId="urn:xdskit:com:c7ptmx37tfbcwy8ky7b" /> 

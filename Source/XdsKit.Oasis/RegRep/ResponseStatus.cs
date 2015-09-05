@@ -14,5 +14,7 @@ namespace XdsKit.Oasis.RegRep
         public static ResponseStatus PartialSuccess = new ResponseStatus("urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:PartialSuccess");
 
         public static ResponseStatus Failure = new ResponseStatus("urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Failure");
+
+        public static ResponseStatus Unavailable = new ResponseStatus("urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Unavailable");
     }
 }

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<DeprecateObjectsRequest xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0"
+                 xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0"
+                 xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0"
+                 id="urn:xdskit:com:c7ptmx37tfbcwy8ky7a"
+                 comment="Deprecate these documents">
+    <!-- All documents for patient id=st3498702 -->
+    <rim:AdhocQuery id="urn:xdskit:com:c7ptmx37tfbcwy8ky7a">
+    <rim:Slot name="$XDSDocumentEntryPatientId">
+      <rim:ValueList>
+        <rim:Value>st3498702^^^&amp;1.3.6.1.4.1.21367.2005.3.7&amp;ISO</rim:Value>
+      </rim:ValueList>
+    </rim:Slot>
+  </rim:AdhocQuery>
+  
+  <!-- And these four documents -->
+  <rim:ObjectRefList>
+      <rim:ObjectRef id="urn:xdskit:com:c7ptmx37tfbcwy8ky7b" />
+      <rim:ObjectRef id="urn:xdskit:com:c7ptmx37tfbcwy8ky7c" />
+      <rim:ObjectRef id="urn:xdskit:com:c7ptmx37tfbcwy8ky7d" />
+      <rim:ObjectRef id="urn:xdskit:com:c7ptmx37tfbcwy8ky7e" />
+  </rim:ObjectRefList>
+
+</DeprecateObjectsRequest>
