@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\EnumExtensions.Description.cs" />
     <Compile Include="Extensions\ObjectExtensions.DeepEquals.cs" />
     <Compile Include="Extensions\ObjectExtensions.XmlRoot.cs" />
+    <Compile Include="Extensions\StringExtensions.AsEnum.cs" />
     <Compile Include="Extensions\StringExtensions.FromXml.cs" />
     <Compile Include="Extensions\ObjectExtensions.ToXml.cs" />
     <Compile Include="Extensions\XDocumentExtensions.Normalize.cs" />

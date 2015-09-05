@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SubmitObjectsRequest xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0"
+                 xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0"
+                 xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0"
+                 id="urn:xdskit:com:c7ptmx37tfbcwy8ky7a"
+                 comment="This is a comment">
+  <rim:RegistryObjectList>
+		<rim:RegistryPackage id="urn:xdskit:com:SubmissionSet:c7ptmx37tfbcwy8ky7d">
+			<rim:Slot name="submissionTime">
+				<rim:ValueList>
+					<rim:Value>20041225235050</rim:Value>
+				</rim:ValueList>
+			</rim:Slot>
+			<rim:Name>
+				<rim:LocalizedString value="Progress Note"/>
+			</rim:Name>
+			<rim:Description>
+				<rim:LocalizedString value="Progress Note for 8/1/2015"/>
+			</rim:Description>
+			<rim:ExternalIdentifier id="urn:xdskit:com:c7ptmx37tfbcwy8ky7e" registryObject="urn:xdskit:com:SubmissionSet:c7ptmx37tfbcwy8ky7d" identificationScheme="urn:xdskit:com:c7ptmx37tfbcwy8ky7f" value="T-77012382">
+				<rim:Name>
+					<rim:LocalizedString value="XDSSubmissionSet.patientId"/>
+				</rim:Name>
+			</rim:ExternalIdentifier>
+		</rim:RegistryPackage>
+          
+		<rim:RegistryPackage id="urn:xdskit:com:Folder:c7ptmx37tfbcwy8ky7g">
+			<rim:Name>
+				<rim:LocalizedString value="Progress Notes"/>
+			</rim:Name>
+		</rim:RegistryPackage>
+    
+      
+    <rim:ExtrinsicObject id="urn:xdskit:com:Document:c7ptmx37tfbcwy8ky7b" mimeType="text/xml" objectType="urn:xdskit:com:c7ptmx37tfbcwy8ky7c">
+			<rim:Slot name="creationTime">
+				<rim:ValueList>
+					<rim:Value>20051224</rim:Value>
+				</rim:ValueList>
+			</rim:Slot>
+			<rim:Slot name="languageCode">
+				<rim:ValueList>
+					<rim:Value>en-us</rim:Value>
+				</rim:ValueList>
+			</rim:Slot>
+			<rim:Slot name="serviceStartTime">
+				<rim:ValueList>
+					<rim:Value>200412230800</rim:Value>
+				</rim:ValueList>
+			</rim:Slot>
+			<rim:Slot name="serviceStopTime">
+				<rim:ValueList>
+					<rim:Value>200412230801</rim:Value>
+				</rim:ValueList>
+			</rim:Slot>
+		</rim:ExtrinsicObject>
+    
+		<rim:Association id="urn:xdskit:com:c7ptmx37tfbcwy8ky7h" associationType="urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember" sourceObject="urn:xdskit:com:SubmissionSet:c7ptmx37tfbcwy8ky7d" targetObject="urn:xdskit:com:Folder:c7ptmx37tfbcwy8ky7g"/>
+		<rim:Association id="urn:xdskit:com:c7ptmx37tfbcwy8ky7i" associationType="urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember" sourceObject="urn:xdskit:com:Folder:c7ptmx37tfbcwy8ky7g" targetObject="urn:xdskit:com:Document:c7ptmx37tfbcwy8ky7b"/>
+		<rim:Association id="urn:xdskit:com:c7ptmx37tfbcwy8ky7j" associationType="urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember" sourceObject="urn:xdskit:com:SubmissionSet:c7ptmx37tfbcwy8ky7d" targetObject="urn:xdskit:com:Document:c7ptmx37tfbcwy8ky7b">
+			<rim:Slot name="SubmissionSetStatus">
+				<rim:ValueList>
+					<rim:Value>Original</rim:Value>
+				</rim:ValueList>
+			</rim:Slot>
+		</rim:Association>    
+  </rim:RegistryObjectList>
+</SubmitObjectsRequest>

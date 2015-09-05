@@ -85,8 +85,15 @@
     <Compile Include="RegRep\Models\VersionInfo.cs" />
     <Compile Include="RegRep\Protocols\RegistryError.cs" />
     <Compile Include="RegRep\Protocols\RegistryErrorList.cs" />
+    <Compile Include="RegRep\ErrorSeverity.cs" />
+    <Compile Include="RegRep\Protocols\RegistryRequest.cs" />
     <Compile Include="RegRep\Protocols\RegistryResponse.cs" />
-    <Compile Include="RegRep\Protocols\ResponseStatus.cs" />
+    <Compile Include="RegRep\ResponseStatus.cs" />
+    <Compile Include="RegRep\Services\AdhocQueryRequest.cs" />
+    <Compile Include="RegRep\Services\LcmServiceRequest.cs" />
+    <Compile Include="RegRep\Services\QueryServiceRequest.cs" />
+    <Compile Include="RegRep\Services\ResponseOption.cs" />
+    <Compile Include="RegRep\Services\ReturnType.cs" />
     <Compile Include="RegRep\Services\SubmitObjectsRequest.cs" />
   </ItemGroup>
   <ItemGroup>

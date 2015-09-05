@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AdhocQueryRequest
+   xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:query:3.0"
+   xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+  <ResponseOption returnComposedObjects="true" returnType="LeafClass"/>
+  <rim:AdhocQuery id="urn:xdskit:com:c7ptmx37tfbcwy8ky7a">
+    <rim:Slot name="$XDSDocumentEntryPatientId">
+      <rim:ValueList>
+        <rim:Value>st3498702^^^&amp;1.3.6.1.4.1.21367.2005.3.7&amp;ISO</rim:Value>
+      </rim:ValueList>
+    </rim:Slot>
+    <rim:Slot name="$XDSDocumentEntryStatus">
+      <rim:ValueList>
+        <rim:Value>('urn:oasis:names:tc:ebxml-egrep:ResponseStatusType:Approved')</rim:Value>
+      </rim:ValueList>
+    </rim:Slot>
+    <rim:Slot name="$XDSDocumentEntryCreationTimeFrom">
+      <rim:ValueList>
+        <rim:Value>200412252300</rim:Value>
+      </rim:ValueList>
+    </rim:Slot>
+    <rim:Slot name="$XDSDocumentEntryCreationTimeTo">
+      <rim:ValueList>
+        <rim:Value>200501010800</rim:Value>
+      </rim:ValueList>
+    </rim:Slot>
+    <rim:Slot name="$XDSDocumentEntryHealthcareFacilityTypeCode">
+      <rim:ValueList>
+        <rim:Value>('Emergency Department')</rim:Value>
+      </rim:ValueList>
+    </rim:Slot>
+  </rim:AdhocQuery>
+</AdhocQueryRequest>

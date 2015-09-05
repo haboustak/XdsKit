@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Xml;
 using System.Xml.Serialization;
 
 using XdsKit.Oasis.RegRep.Models;
@@ -8,21 +7,10 @@ using XdsKit.Oasis.RegRep.Models;
 namespace XdsKit.Oasis.RegRep.Services
 {
     [XmlRoot(Namespace = Namespaces.Lcm)]
-    public class SubmitObjectsRequest
+    public class SubmitObjectsRequest : LcmServiceRequest
     {
         [XmlElement("RegistryObjectList", Namespace = Namespaces.Rim)]
         public RegistryObjectList RegistryObjects { get; set; }
-
-        [XmlNamespaceDeclarations] 
-        public XmlSerializerNamespaces xmlns;
-
-        public SubmitObjectsRequest()
-        {
-            xmlns = new XmlSerializerNamespaces(new []
-            {
-                new XmlQualifiedName("lcm", Namespaces.Lcm) 
-            });
-        }
 
         public ExtrinsicObject ExtrinsicObject(string id)
         {

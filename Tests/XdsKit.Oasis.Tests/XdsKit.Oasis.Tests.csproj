@@ -48,7 +48,12 @@
     <Compile Include="..\..\VersionAssemblyInfo.cs">
       <Link>Properties\VersionAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="RegRep\Protocols\RegistryRequestTests.cs" />
+    <Compile Include="RegRep\Protocols\RegistryResponseTests.cs" />
+    <Compile Include="RegRep\Services\AdhocQueryRequestTests.cs" />
+    <Compile Include="RegRep\Services\SubmitObjectsRequestTests.cs" />
     <Compile Include="XDocumentExtensions.AssertByLine.cs" />
+    <Compile Include="OasisAssert.cs" />
     <Compile Include="XmlUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegRep\Models\AssociationModelTests.cs" />
@@ -74,33 +79,46 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\ProvenanceModel_Test01.xml" />
+    <EmbeddedResource Include="Resources\Models\ProvenanceModel_Test01.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\CoreModel_Test01.xml" />
+    <EmbeddedResource Include="Resources\Models\CoreModel_Test01.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\ClassificationModel_Test01.xml" />
+    <EmbeddedResource Include="Resources\Models\ClassificationModel_Test01.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\AssociationModel_Test01.xml" />
+    <EmbeddedResource Include="Resources\Models\AssociationModel_Test01.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\ServiceModel_Test01.xml" />
+    <EmbeddedResource Include="Resources\Models\ServiceModel_Test01.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\EventModel_Test01.xml" />
+    <EmbeddedResource Include="Resources\Models\EventModel_Test01.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\EventModel_Test02.xml" />
+    <EmbeddedResource Include="Resources\Models\EventModel_Test02.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\EventModel_Test03.xml" />
+    <EmbeddedResource Include="Resources\Models\EventModel_Test03.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\CooperatingRegistryModel_Test01.xml" />
+    <EmbeddedResource Include="Resources\Models\CooperatingRegistryModel_Test01.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Services\SubmitObjectsRequest_Test01.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Protocols\RegistryRequest_Test01.xml" />
+    <EmbeddedResource Include="Resources\Protocols\RegistryResponse_Test01.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Services\AdhocQueryRequest_Test01.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

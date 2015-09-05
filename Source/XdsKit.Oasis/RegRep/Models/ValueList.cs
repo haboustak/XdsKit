@@ -6,7 +6,6 @@ namespace XdsKit.Oasis.RegRep.Models
     [XmlRoot(Namespace = Namespaces.Rim)]
     public class ValueList
     {
-        [XmlElement("Value")]
-        public List<string> Values { get; set; } 
+        public List<string> Value { get; set; } 
     }
 }
