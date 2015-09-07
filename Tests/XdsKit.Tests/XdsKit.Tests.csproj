@@ -59,6 +59,8 @@
     <Compile Include="Hl7\Datatypes\XCNTests.cs" />
     <Compile Include="Hl7\Datatypes\XONTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Xdsb\Models\AuthorTests.cs" />
+    <Compile Include="Xdsb\Models\SubmissionSetTests.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

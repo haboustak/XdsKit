@@ -62,7 +62,7 @@ namespace XdsKit
         }
 
 
-        public static explicit operator string(UriEnumeration value)
+        public static implicit operator string(UriEnumeration value)
         {
             return value.Uri;
         }

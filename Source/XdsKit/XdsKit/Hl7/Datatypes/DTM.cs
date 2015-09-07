@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace XdsKit.Hl7.Datatypes
 {
@@ -11,6 +12,7 @@ namespace XdsKit.Hl7.Datatypes
         {
             get { return _date ?? (_date = new DT()); }
         }
+
         private TM Time
         {
             get { return _time ?? (_time = new TM()); }
@@ -87,18 +89,34 @@ namespace XdsKit.Hl7.Datatypes
         public DTM()
         { }
 
+        public DTM(DateTimeOffset date, DateTimePrecision precision = DateTimePrecision.Millisecond, int? tenHundrethSeconds = null)
+        {
+            Initialize(date.AsDT(precision), date.AsTM(precision, tenHundrethSeconds));
+        }
+
+        public DTM(DT dt, TM tm=null)
+        {
+            Initialize(dt, tm);
+        }
         public DTM(
             int year, int? month = null, int? day = null,
             int? hour = null, int? minute = null, int? second = null, int? milliseconds = null, int? tenThousandths = null,
             int? offsetHours = null, int? offsetMinutes=null)
         {
-            _date = new DT(year, month, day);
-            _time = hour != null
+            Initialize(
+                new DT(year, month, day),
+                hour != null
                 ? new TM(hour.Value, minute ?? 0, second, milliseconds, tenThousandths, offsetHours, offsetMinutes)
-                : null;
+                : null);
+        }
 
+        private void Initialize(DT date, TM time)
+        {
+            _date = date;
+            _time = time;
             Value = _date.GetValue() + (_time != null ? _time.GetValue() : "");
         }
+
 
         public override void SetValue(string value)
         {

@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using XdsKit.Hl7;
 using XdsKit.Hl7.Datatypes;
 
@@ -461,6 +462,115 @@ namespace XdsKit.Tests.Hl7.Datatypes
             Assert.AreEqual(5, date.TenThousandths);
             Assert.AreEqual(4, date.OffsetHours);
             Assert.AreEqual(0, date.OffsetMinutes);
+        }
+
+        [Test]
+        public void Should_Encode_DateTime_DefaultPrecision()
+        {
+            var date = new DateTimeOffset(2015, 9, 4, 11, 59, 59, 123, new TimeSpan(4, 0, 0));
+            var hl7Date = new DTM(date);
+            Assert.AreEqual("20150904115959.123+0400", hl7Date.Encode());
+
+            date = new DateTimeOffset(2015, 9, 4, 11, 59, 59, 123, new TimeSpan(0,0,0));
+            hl7Date = new DTM(date);
+            Assert.AreEqual("20150904115959.123", hl7Date.Encode());
+        }
+
+        [Test]
+        public void Should_Encode_DateTime_yyyy()
+        {
+            var date = new DateTimeOffset(2015, 9, 4, 11, 59, 59, 123, new TimeSpan(4, 0, 0));
+            var hl7Date = new DTM(date, DateTimePrecision.Year);
+            Assert.AreEqual("2015", hl7Date.Encode());
+
+            hl7Date = new DTM(date, DateTimePrecision.Year, 7);
+            Assert.AreEqual("2015", hl7Date.Encode());
+        }
+
+        [Test]
+        public void Should_Encode_DateTime_Should_Encode_DateTime_yyyyMM()
+        {
+            var date = new DateTimeOffset(2015, 9, 4, 11, 59, 59, 123, new TimeSpan(4, 0, 0));
+            var hl7Date = new DTM(date, DateTimePrecision.Month);
+            Assert.AreEqual("201509", hl7Date.Encode());
+
+            hl7Date = new DTM(date, DateTimePrecision.Month, 7);
+            Assert.AreEqual("201509", hl7Date.Encode());
+        }
+
+        [Test]
+        public void Should_Encode_DateTime_Should_Encode_DateTime_yyyyMMdd()
+        {
+            var date = new DateTimeOffset(2015, 9, 4, 11, 59, 59, 123, new TimeSpan(4, 0, 0));
+            var hl7Date = new DTM(date, DateTimePrecision.Day);
+            Assert.AreEqual("20150904", hl7Date.Encode());
+
+            date = new DateTimeOffset(2015, 9, 4, 11, 59, 59, 123, new TimeSpan(0, 0, 0));
+            hl7Date = new DTM(date, DateTimePrecision.Day, 7);
+            Assert.AreEqual("20150904", hl7Date.Encode());
+        }
+
+        [Test]
+        public void Should_Encode_DateTime_Should_Encode_DateTime_yyyyMMddHHmm()
+        {
+            var date = new DateTimeOffset(2015, 9, 4, 11, 59, 59, 123, new TimeSpan(4, 0, 0));
+            var hl7Date = new DTM(date, DateTimePrecision.Minute);
+            Assert.AreEqual("201509041159+0400", hl7Date.Encode());
+
+            date = new DateTimeOffset(2015, 9, 4, 11, 59, 59, 123, new TimeSpan(0, 0, 0));
+            hl7Date = new DTM(date, DateTimePrecision.Minute);
+            Assert.AreEqual("201509041159", hl7Date.Encode());
+
+            hl7Date = new DTM(date, DateTimePrecision.Minute, 7);
+            Assert.AreEqual("201509041159", hl7Date.Encode());
+        }
+
+        [Test]
+        public void Should_Encode_DateTime_Should_Encode_DateTime_yyyyMMddHHmmss()
+        {
+            var date = new DateTimeOffset(2015, 9, 4, 11, 59, 59, 123, new TimeSpan(4, 0, 0));
+            var hl7Date = new DTM(date, DateTimePrecision.Second);
+            Assert.AreEqual("20150904115959+0400", hl7Date.Encode());
+
+            date = new DateTimeOffset(2015, 9, 4, 11, 59, 59, 123, new TimeSpan(0, 0, 0));
+            hl7Date = new DTM(date, DateTimePrecision.Second);
+            Assert.AreEqual("20150904115959", hl7Date.Encode());
+
+            hl7Date = new DTM(date, DateTimePrecision.Second, 7);
+            Assert.AreEqual("20150904115959", hl7Date.Encode());
+        }
+
+        [Test]
+        public void Should_Encode_DateTime_Should_Encode_DateTime_yyyyMMddHHmmss_sss()
+        {
+            var date = new DateTimeOffset(2015, 9, 4, 11, 59, 59, 123, new TimeSpan(4, 0, 0));
+            var hl7Date = new DTM(date, DateTimePrecision.Millisecond);
+            Assert.AreEqual("20150904115959.123+0400", hl7Date.Encode());
+
+            date = new DateTimeOffset(2015, 9, 4, 11, 59, 59, 123, new TimeSpan(0, 0, 0));
+            hl7Date = new DTM(date, DateTimePrecision.Millisecond);
+            Assert.AreEqual("20150904115959.123", hl7Date.Encode());
+
+            hl7Date = new DTM(date, DateTimePrecision.Millisecond, 7);
+            Assert.AreEqual("20150904115959.123", hl7Date.Encode());
+        }
+
+        [Test]
+        public void Should_Encode_DateTime_Should_Encode_DateTime_yyyyMMddHHmmss_ssss()
+        {
+            var date = new DateTimeOffset(2015, 9, 4, 11, 59, 59, 123, new TimeSpan(4, 0, 0));
+            var hl7Date = new DTM(date, DateTimePrecision.TenHundrethSecond);
+            Assert.AreEqual("20150904115959.123+0400", hl7Date.Encode());
+           
+            hl7Date = new DTM(date, DateTimePrecision.TenHundrethSecond, 7);
+            Assert.AreEqual("20150904115959.1237+0400", hl7Date.Encode());
+
+            date = new DateTimeOffset(2015, 9, 4, 11, 59, 59, 123, new TimeSpan(0, 0, 0));
+            hl7Date = new DTM(date, DateTimePrecision.TenHundrethSecond);
+            Assert.AreEqual("20150904115959.123", hl7Date.Encode());
+
+            hl7Date = new DTM(date, DateTimePrecision.TenHundrethSecond, 7);
+            Assert.AreEqual("20150904115959.1237", hl7Date.Encode());
         }
     }
 }

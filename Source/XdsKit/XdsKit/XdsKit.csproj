@@ -45,10 +45,12 @@
     <Compile Include="..\..\..\VersionAssemblyInfo.cs">
       <Link>Properties\VersionAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Extensions\DateTimeExtensions.AsDTM.cs" />
     <Compile Include="Hl7\DataType.cs" />
     <Compile Include="Hl7\Datatypes\CE.cs" />
     <Compile Include="Hl7\Datatypes\CWE.cs" />
     <Compile Include="Hl7\Datatypes\CX.cs" />
+    <Compile Include="Hl7\Datatypes\DateTimePrecision.cs" />
     <Compile Include="Hl7\Datatypes\DR.cs" />
     <Compile Include="Hl7\Datatypes\DT.cs" />
     <Compile Include="Hl7\Datatypes\DTM.cs" />
@@ -63,8 +65,25 @@
     <Compile Include="Hl7\Datatypes\TS.cs" />
     <Compile Include="Hl7\Datatypes\XCN.cs" />
     <Compile Include="Hl7\Datatypes\XON.cs" />
+    <Compile Include="Xdsb\ClassificationSchemes.cs" />
+    <Compile Include="Xdsb\Models\Author.cs" />
+    <Compile Include="Xdsb\Models\ClassCode.cs" />
+    <Compile Include="Xdsb\Models\Code.cs" />
+    <Compile Include="Xdsb\Models\ConfidentialityCode.cs" />
+    <Compile Include="Xdsb\Models\ContentTypeCode.cs" />
     <Compile Include="Xdsb\Models\Document.cs" />
+    <Compile Include="Xdsb\Models\EventCode.cs" />
     <Compile Include="Xdsb\Models\Folder.cs" />
+    <Compile Include="Xdsb\Models\FolderCode.cs" />
+    <Compile Include="Xdsb\Models\FormatCode.cs" />
+    <Compile Include="Xdsb\Models\HealthcareFacilityTypeCode.cs" />
+    <Compile Include="Xdsb\Models\IntendedRecipient.cs" />
+    <Compile Include="Xdsb\Models\PracticeSettingCode.cs" />
+    <Compile Include="Xdsb\Models\DocumentTypeCode.cs" />
+    <Compile Include="Xdsb\Models\XdsEntry.cs" />
+    <Compile Include="Xdsb\Models\XdsIdentifier.cs" />
+    <Compile Include="Xdsb\Models\XdsOrganization.cs" />
+    <Compile Include="Xdsb\Models\XdsPerson.cs" />
     <Compile Include="Xdsb\Services\ProvideAndRegisterDocumentSetRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Xdsb\Models\SubmissionSet.cs" />

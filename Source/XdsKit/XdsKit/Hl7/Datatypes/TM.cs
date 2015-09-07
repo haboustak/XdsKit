@@ -48,7 +48,7 @@ namespace XdsKit.Hl7.Datatypes
 
         private string TimeZoneOffset()
         {
-            if (OffsetHours == null) return "";
+            if (OffsetHours == null || (OffsetHours<1 && OffsetMinutes<1)) return "";
 
             return (OffsetHours > 0 ? "+" : "-")
                 + Math.Abs(OffsetHours.Value).ToString().PadLeft(2, '0')
