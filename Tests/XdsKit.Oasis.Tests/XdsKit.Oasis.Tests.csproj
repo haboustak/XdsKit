@@ -76,16 +76,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Source\XdsKit.Oasis\XdsKit.Oasis.csproj">
-      <Project>{efdc6b8b-895e-4c4d-87d7-83fc9116d4a3}</Project>
-      <Name>XdsKit.Oasis</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Source\XdsKit\XdsKit.csproj">
-      <Project>{996a1073-c348-43e4-aaa3-37cd6f08da6d}</Project>
-      <Name>XdsKit</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\Models\ProvenanceModel_Test01.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +130,16 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Services\RemoveObjectsRequest_Test01.xml" />
     <EmbeddedResource Include="Resources\Services\UndeprecateObjectsRequest_Test01.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\XdsKit.Oasis\XdsKit.Oasis.csproj">
+      <Project>{efdc6b8b-895e-4c4d-87d7-83fc9116d4a3}</Project>
+      <Name>XdsKit.Oasis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\XdsKit.Shared\XdsKit.Shared.csproj">
+      <Project>{996a1073-c348-43e4-aaa3-37cd6f08da6d}</Project>
+      <Name>XdsKit.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("XdsKit")]
+[assembly: AssemblyTitle("XdsKit.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("XdsKit")]
+[assembly: AssemblyProduct("XdsKit.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6ba82ade-2ed4-45a4-893c-25077a59c996")]
+[assembly: Guid("3e96e0a1-65c1-4a82-81f2-f2aaf18c3f8a")]
 
 // Version information for an assembly consists of the following four values:
 //

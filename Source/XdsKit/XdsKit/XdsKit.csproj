@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{996A1073-C348-43E4-AAA3-37CD6F08DA6D}</ProjectGuid>
+    <ProjectGuid>{84F209B3-44AD-42EC-A24E-7257743CD681}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XdsKit</RootNamespace>
@@ -39,17 +39,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\ObjectExtensions.DeepEquals.cs" />
-    <Compile Include="Extensions\ObjectExtensions.XmlRoot.cs" />
-    <Compile Include="Extensions\StringExtensions.FromXml.cs" />
-    <Compile Include="Extensions\ObjectExtensions.ToXml.cs" />
-    <Compile Include="Extensions\XDocumentExtensions.Normalize.cs" />
-    <Compile Include="UriEnumeration.cs" />
+    <Compile Include="..\..\..\ProductAssemblyInfo.cs">
+      <Link>Properties\ProductAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\VersionAssemblyInfo.cs">
+      <Link>Properties\VersionAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Hl7\DataType.cs" />
+    <Compile Include="Hl7\Datatypes\CE.cs" />
+    <Compile Include="Hl7\Datatypes\CWE.cs" />
+    <Compile Include="Hl7\Datatypes\CX.cs" />
+    <Compile Include="Hl7\Datatypes\DR.cs" />
+    <Compile Include="Hl7\Datatypes\DT.cs" />
+    <Compile Include="Hl7\Datatypes\DTM.cs" />
+    <Compile Include="Hl7\Datatypes\FN.cs" />
+    <Compile Include="Hl7\Datatypes\HD.cs" />
+    <Compile Include="Hl7\Datatypes\ID.cs" />
+    <Compile Include="Hl7\Datatypes\IS.cs" />
+    <Compile Include="Hl7\Datatypes\NM.cs" />
+    <Compile Include="Hl7\Datatypes\TM.cs" />
+    <Compile Include="Hl7\Primitive.cs" />
+    <Compile Include="Hl7\Datatypes\ST.cs" />
+    <Compile Include="Hl7\Datatypes\TS.cs" />
+    <Compile Include="Hl7\Datatypes\XCN.cs" />
+    <Compile Include="Hl7\Datatypes\XON.cs" />
+    <Compile Include="Xdsb\Models\Document.cs" />
+    <Compile Include="Xdsb\Models\Folder.cs" />
+    <Compile Include="Xdsb\Services\ProvideAndRegisterDocumentSetRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Extensions\StringExtensions.AsTimeSpan.cs" />
-    <Compile Include="Extensions\StringExtensions.Specified.cs" />
-    <Compile Include="Extensions\TypeExtensions.XmlRoot.cs" />
+    <Compile Include="Xdsb\Models\SubmissionSet.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\XdsKit.Oasis\XdsKit.Oasis.csproj">
+      <Project>{efdc6b8b-895e-4c4d-87d7-83fc9116d4a3}</Project>
+      <Name>XdsKit.Oasis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XdsKit.Shared\XdsKit.Shared.csproj">
+      <Project>{996a1073-c348-43e4-aaa3-37cd6f08da6d}</Project>
+      <Name>XdsKit.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
