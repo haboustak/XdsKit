@@ -65,13 +65,13 @@
     <Compile Include="Hl7\Datatypes\TS.cs" />
     <Compile Include="Hl7\Datatypes\XCN.cs" />
     <Compile Include="Hl7\Datatypes\XON.cs" />
-    <Compile Include="Xdsb\ClassificationSchemes.cs" />
+    <Compile Include="Xdsb\XdsClassification.cs" />
     <Compile Include="Xdsb\Models\Author.cs" />
     <Compile Include="Xdsb\Models\ClassCode.cs" />
     <Compile Include="Xdsb\Models\Code.cs" />
     <Compile Include="Xdsb\Models\ConfidentialityCode.cs" />
     <Compile Include="Xdsb\Models\ContentTypeCode.cs" />
-    <Compile Include="Xdsb\Models\Document.cs" />
+    <Compile Include="Xdsb\Models\DocumentEntry.cs" />
     <Compile Include="Xdsb\Models\EventCode.cs" />
     <Compile Include="Xdsb\Models\Folder.cs" />
     <Compile Include="Xdsb\Models\FolderCode.cs" />
@@ -84,6 +84,7 @@
     <Compile Include="Xdsb\Models\XdsIdentifier.cs" />
     <Compile Include="Xdsb\Models\XdsOrganization.cs" />
     <Compile Include="Xdsb\Models\XdsPerson.cs" />
+    <Compile Include="Xdsb\Services\XdsDocument.cs" />
     <Compile Include="Xdsb\Services\ProvideAndRegisterDocumentSetRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Xdsb\Models\SubmissionSet.cs" />

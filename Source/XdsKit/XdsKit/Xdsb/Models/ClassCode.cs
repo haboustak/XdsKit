@@ -4,7 +4,7 @@
     {
         public ClassCode()
         {
-            UniqueId = ClassificationScheme.ClassCode;
+            UniqueId = XdsClassification.ClassCode;
         }
     }
 }

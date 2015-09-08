@@ -4,7 +4,7 @@
     {
         public PracticeSettingCode()
         {
-            UniqueId = ClassificationScheme.PracticeSettingCode;
+            UniqueId = XdsClassification.PracticeSettingCode;
         }
     }
 }

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using XdsKit.Hl7.Datatypes;
+using XdsKit.Oasis.RegRep.Models;
 
 namespace XdsKit.Xdsb.Models
 {
-    public class Document : XdsEntry
+    public class DocumentEntry : XdsEntry
     {
         private DTM _hl7CreationTime, _hl7ServiceStartTime, _hl7ServiceStopTime;
         private DateTimeOffset? _creationTime, _serviceStartTime, _serviceStopTime;
@@ -93,13 +94,14 @@ namespace XdsKit.Xdsb.Models
 
         public string Uri { get; set; }
 
+        public byte[] Content { get; set; }
         
-        public Document(
+        public DocumentEntry(
             DateTimePrecision precision = DateTimePrecision.Second)
             : this(precision, precision, precision)
         { }
 
-        public Document(
+        public DocumentEntry(
             DateTimePrecision creationPrecision,
             DateTimePrecision serviceStartTimePrecision = DateTimePrecision.Second,
             DateTimePrecision serviceStopTimePrecision = DateTimePrecision.Second)
@@ -107,6 +109,13 @@ namespace XdsKit.Xdsb.Models
             _creationTimePrecision = creationPrecision;
             _serviceStartTimePrecision = serviceStartTimePrecision;
             _serviceStopTimePrecision = serviceStopTimePrecision;
+        }
+
+        public ExtrinsicObject ToXml()
+        {
+            var document = new ExtrinsicObject();
+
+            return document;
         }
     }
 }

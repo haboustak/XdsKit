@@ -1,4 +1,5 @@
 ﻿using XdsKit.Hl7.Datatypes;
+using XdsKit.Oasis.RegRep.Models;
 
 namespace XdsKit.Xdsb.Models
 {

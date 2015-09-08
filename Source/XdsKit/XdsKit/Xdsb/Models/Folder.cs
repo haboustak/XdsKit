@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using XdsKit.Hl7.Datatypes;
+using XdsKit.Oasis.RegRep.Models;
 
 namespace XdsKit.Xdsb.Models
 {
@@ -34,12 +35,18 @@ namespace XdsKit.Xdsb.Models
 
         public XdsIdentifier PatientId { get; set; }
 
-        public List<Document> Documents { get; set; }
+        public List<DocumentEntry> Documents { get; set; }
         
         public Folder(DateTimePrecision precision = DateTimePrecision.Second)
         {
             _lastUpdateTimePrecision = precision;
         }
 
+        public RegistryPackage ToXml()
+        {
+            var package = new RegistryPackage();
+
+            return package;
+        }
     }
 }

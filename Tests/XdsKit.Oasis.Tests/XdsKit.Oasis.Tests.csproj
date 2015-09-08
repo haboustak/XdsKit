@@ -61,7 +61,6 @@
     <Compile Include="RegRep\Services\UpdateObjectsRequestTests.cs" />
     <Compile Include="XDocumentExtensions.AssertByLine.cs" />
     <Compile Include="OasisAssert.cs" />
-    <Compile Include="XmlUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegRep\Models\AssociationModelTests.cs" />
     <Compile Include="RegRep\Models\CooperatingRegistryModelTests.cs" />

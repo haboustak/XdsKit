@@ -4,7 +4,7 @@
     {
         public ContentTypeCode()
         {
-            UniqueId = ClassificationScheme.SubmissionSetContentTypeCode;
+            UniqueId = XdsClassification.SubmissionSetContentTypeCode;
         }
     }
 }

@@ -104,6 +104,7 @@
     <Compile Include="RegRep\Services\SubmitObjectsRequest.cs" />
     <Compile Include="RegRep\Services\UndeprecateObjectsRequest.cs" />
     <Compile Include="RegRep\Services\UpdateObjectsRequest.cs" />
+    <Compile Include="RegRep\XmlUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Schema\cms.xsd">

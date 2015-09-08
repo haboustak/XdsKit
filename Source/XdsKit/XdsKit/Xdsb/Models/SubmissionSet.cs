@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using XdsKit.Hl7.Datatypes;
+using XdsKit.Oasis.RegRep.Models;
 
 namespace XdsKit.Xdsb.Models
 {
@@ -36,9 +37,9 @@ namespace XdsKit.Xdsb.Models
             }
         }
 
-        public List<Document> Documents { get; set; }
+        public List<DocumentEntry> Documents { get; set; }
 
-        public List<Document> Folders { get; set; }
+        public List<Folder> Folders { get; set; }
 
 
         public SubmissionSet(DateTimePrecision precision = DateTimePrecision.Second)
@@ -51,5 +52,6 @@ namespace XdsKit.Xdsb.Models
             _submissionTime = date;
             _hl7Date = date.AsDTM(precision, tenHundrethSeconds);
         }
+
     }
 }

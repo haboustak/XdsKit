@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using XdsKit.Oasis.RegRep.Models;
 
-namespace XdsKit.Oasis.Tests
+namespace XdsKit.Oasis.RegRep
 {
     public static class XmlUtil
     {
