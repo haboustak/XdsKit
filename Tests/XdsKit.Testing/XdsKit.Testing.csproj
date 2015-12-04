@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{25D1466D-359B-4CE4-8B5E-5846D7F34D8F}</ProjectGuid>
+    <ProjectGuid>{BDFE58CE-79E2-4506-A885-C4FA4872BAB9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XdsKit.Tests</RootNamespace>
-    <AssemblyName>XdsKit.Tests</AssemblyName>
+    <RootNamespace>XdsKit</RootNamespace>
+    <AssemblyName>XdsKit.Testing</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,12 +23,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
@@ -42,57 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Hl7\Datatypes\CETests.cs" />
-    <Compile Include="Hl7\Datatypes\CWETests.cs" />
-    <Compile Include="Hl7\Datatypes\CXTests.cs" />
-    <Compile Include="Hl7\Datatypes\DRTests.cs" />
-    <Compile Include="Hl7\Datatypes\DTMTests.cs" />
-    <Compile Include="Hl7\Datatypes\DTTests.cs" />
-    <Compile Include="Hl7\Datatypes\FNTests.cs" />
-    <Compile Include="Hl7\Datatypes\HDTests.cs" />
-    <Compile Include="Hl7\Datatypes\IDTests.cs" />
-    <Compile Include="Hl7\Datatypes\ISTests.cs" />
-    <Compile Include="Hl7\Datatypes\NMTests.cs" />
-    <Compile Include="Hl7\Datatypes\STTests.cs" />
-    <Compile Include="Hl7\Datatypes\TMTests.cs" />
-    <Compile Include="Hl7\Datatypes\TSTests.cs" />
-    <Compile Include="Hl7\Datatypes\XCNTests.cs" />
-    <Compile Include="Hl7\Datatypes\XONTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Xdsb\Models\AuthorTests.cs" />
-    <Compile Include="Xdsb\Models\DocumentEntryTests.cs" />
-    <Compile Include="Xdsb\Models\FolderTests.cs" />
-    <Compile Include="Xdsb\Models\SubmissionSetTests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Xdsb\Folder_Test01.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Source\XdsKit.Oasis\XdsKit.Oasis.csproj">
-      <Project>{efdc6b8b-895e-4c4d-87d7-83fc9116d4a3}</Project>
-      <Name>XdsKit.Oasis</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Source\XdsKit.Shared\XdsKit.Shared.csproj">
-      <Project>{996a1073-c348-43e4-aaa3-37cd6f08da6d}</Project>
-      <Name>XdsKit.Shared</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Source\XdsKit\XdsKit\XdsKit.csproj">
-      <Project>{84f209b3-44ad-42ec-a24e-7257743cd681}</Project>
-      <Name>XdsKit</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\XdsKit.Testing\XdsKit.Testing.csproj">
-      <Project>{bdfe58ce-79e2-4506-a885-c4fa4872bab9}</Project>
-      <Name>XdsKit.Testing</Name>
-    </ProjectReference>
+    <Compile Include="Resource.cs" />
+    <Compile Include="XDocumentExtensions.AssertByLine.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Xdsb\SubmissionSet_Test01.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Xdsb\DocumentEntry_Test01.xml" />
+    <ProjectReference Include="..\..\Source\XdsKit.Shared\XdsKit.Shared.csproj">
+      <Project>{996a1073-c348-43e4-aaa3-37cd6f08da6d}</Project>
+      <Name>XdsKit.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

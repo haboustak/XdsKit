@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RegistryPackage id="Folder01" home="urn:oid:1.2.3.4.5.6.7" status="urn:oasis:names:tc:ebxml-regrep:StatusType:Approved" xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+  <Slot name="lastUpdateTime">
+    <ValueList>
+      <Value>20150901085500</Value>
+    </ValueList>
+  </Slot>
+  <Name>
+    <LocalizedString value="XdsKit Documents" />
+  </Name>
+  <Description>
+    <LocalizedString value="This folder contains all XdsKit documents" />
+  </Description>
+  <Classification classificationScheme="urn:uuid:d9d542f3-6cc4-48b6-8870-ea235fbc94c2" classifiedObject="Folder01" />
+  <Classification classificationScheme="urn:uuid:1ba97051-7806-41a8-a48b-8fce7af683c5" classifiedObject="Folder01" nodeRepresentation="42">
+    <Slot name="codingScheme">
+      <ValueList>
+        <Value>1.2.3.4.5.6.7</Value>
+      </ValueList>
+    </Slot>
+    <Name>
+      <LocalizedString value="Blue Folder" />
+    </Name>
+  </Classification>
+  <Classification classificationScheme="urn:uuid:1ba97051-7806-41a8-a48b-8fce7af683c5" classifiedObject="Folder01" nodeRepresentation="99">
+    <Slot name="codingScheme">
+      <ValueList>
+        <Value>7.6.5.4.3.2.1</Value>
+      </ValueList>
+    </Slot>
+    <Name>
+      <LocalizedString value="Secured Folder" />
+    </Name>
+  </Classification>
+  <Classification classificationScheme="urn:uuid:2c144a76-29a9-4b7c-af54-b25409fe7d03" classifiedObject="Folder01" />
+  <ExternalIdentifier identificationScheme="urn:uuid:75df8f67-9973-4fbe-a900-df66cefecc5a" registryObject="Folder01" value="1.2.3.4.5.6.7">
+    <Name>
+      <LocalizedString value="XDSFolder.uniqueId" />
+    </Name>
+  </ExternalIdentifier>
+  <ExternalIdentifier identificationScheme="urn:uuid:f64ffdf0-4b97-4e06-b79f-a52b38ec2f8a" registryObject="Folder01" value="MRN123456789^^^&amp;8&amp;ISO">
+    <Name>
+      <LocalizedString value="XDSFolder.patientId" />
+    </Name>
+  </ExternalIdentifier>
+</RegistryPackage>

@@ -4,7 +4,7 @@
     {
         public FolderCode()
         {
-            UniqueId = XdsClassification.FolderCode;
+            Scheme = XdsClassification.FolderCode;
         }
     }
 }

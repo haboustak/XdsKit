@@ -7,17 +7,28 @@ namespace XdsKit.Oasis.RegRep
     {
         public static InternationalString LocalString(string value, string charset="UTF-8", string language = "en-US")
         {
-            return new InternationalString
-            {
-                LocalizedStrings = new List<LocalizedString>
+            return string.IsNullOrEmpty(value)
+                ? null
+                : new InternationalString
                 {
-                    new LocalizedString
+                    LocalizedStrings = new List<LocalizedString>
                     {
-                        Value = value,
-                        Language = language,
-                        Charset = charset
+                        new LocalizedString
+                        {
+                            Value = value,
+                            Language = language,
+                            Charset = charset
+                        }
                     }
-                }
+                };
+        }
+
+        public static Slot SingleSlot(string name, string value)
+        {
+            return new Slot
+            {
+                Name = name,
+                Values = new List<string> {value}
             };
         }
     }

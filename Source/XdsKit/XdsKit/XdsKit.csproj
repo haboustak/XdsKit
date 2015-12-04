@@ -65,6 +65,7 @@
     <Compile Include="Hl7\Datatypes\TS.cs" />
     <Compile Include="Hl7\Datatypes\XCN.cs" />
     <Compile Include="Hl7\Datatypes\XON.cs" />
+    <Compile Include="Xdsb\Models\XdsReferenceIdentifier.cs" />
     <Compile Include="Xdsb\XdsClassification.cs" />
     <Compile Include="Xdsb\Models\Author.cs" />
     <Compile Include="Xdsb\Models\ClassCode.cs" />
@@ -88,6 +89,8 @@
     <Compile Include="Xdsb\Services\ProvideAndRegisterDocumentSetRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Xdsb\Models\SubmissionSet.cs" />
+    <Compile Include="Xdsb\XdsIdentification.cs" />
+    <Compile Include="Xdsb\XdsReferenceIdType.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\XdsKit.Oasis\XdsKit.Oasis.csproj">

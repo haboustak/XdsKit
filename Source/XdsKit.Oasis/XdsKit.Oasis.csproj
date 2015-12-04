@@ -84,6 +84,7 @@
     <Compile Include="RegRep\Models\User.cs" />
     <Compile Include="RegRep\Models\ValueList.cs" />
     <Compile Include="RegRep\Models\VersionInfo.cs" />
+    <Compile Include="RegRep\ObjectType.cs" />
     <Compile Include="RegRep\Protocols\RegistryError.cs" />
     <Compile Include="RegRep\Protocols\RegistryErrorList.cs" />
     <Compile Include="RegRep\ErrorSeverity.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="RegRep\Services\SubmitObjectsRequest.cs" />
     <Compile Include="RegRep\Services\UndeprecateObjectsRequest.cs" />
     <Compile Include="RegRep\Services\UpdateObjectsRequest.cs" />
+    <Compile Include="RegRep\StatusType.cs" />
     <Compile Include="RegRep\XmlUtil.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -7,11 +7,6 @@
     {
         public T Value { get; set; }
 
-        public override string ToString()
-        {
-            return GetValue();
-        }
-
         public override string GetValue()
         {
             return Value!=null ? Value.ToString() : "";

@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using XdsKit.Hl7;
+﻿using XdsKit.Hl7;
 using XdsKit.Hl7.Datatypes;
 
 namespace XdsKit.Xdsb.Models
 {
     public class XdsIdentifier
     {
-        private readonly CX _identifier;
+        protected readonly CX _identifier;
 
         public CX Hl7Identifier
         {
@@ -59,6 +54,11 @@ namespace XdsKit.Xdsb.Models
         public XdsIdentifier(string id)
         {
             _identifier = DataType.Parse(new CX(), id);
+        }
+
+        public override string ToString()
+        {
+            return Hl7Identifier == null ? "" : Hl7Identifier.Encode();
         }
     }
 }

@@ -40,91 +40,21 @@ namespace XdsKit.Xdsb.Services
             {
                 RegistryObjects = BuildMetadata(submission)
             };
-            Documents = new List<XdsDocument>();
-            submission.Documents.ForEach(d => Documents.Add(new XdsDocument
+            Documents = submission.Documents.Select(d => new XdsDocument
             {
                 Id = d.EntryUuid,
                 Content = d.Content
-            }));
+            }).ToList();
         }
 
         private RegistryObjectList BuildMetadata(SubmissionSet submission)
         {
             var list = new RegistryObjectList();
-            list.RegistryPackages.Add(GetSubmissionPackage(submission));
-            submission.Folders.ForEach(f => list.RegistryPackages.Add(GetFolderPackage(f)));
-            submission.Documents.ForEach(d => list.ExtrinsicObjects.Add(d.ToXml()));
+            list.RegistryPackages.Add(submission.ToRegistryObject());
+            submission.Folders.ForEach(f => list.RegistryPackages.Add(f.ToRegistryObject()));
+            submission.Documents.ForEach(d => list.ExtrinsicObjects.Add(d.ToRegistryObject()));
 
             return list;
-        }
-
-        private RegistryPackage GetSubmissionPackage(SubmissionSet submission)
-        {
-            var package = new RegistryPackage
-            {
-                Id = submission.EntryUuid,
-                Status = "Approved",
-                Description = XmlUtil.LocalString(submission.Comments),
-
-            };
-            
-            package.Classifications.Add(GetAuthor(submission.Author, submission.EntryUuid, XdsClassification.SubmissionSetAuthor));
-
-            return package;
-        }
-
-        private RegistryPackage GetFolderPackage(Folder submission)
-        {
-            var package = new RegistryPackage();
-
-            return package;
-        }
-
-        private ExtrinsicObject GetDocumentObject(DocumentEntry document)
-        {
-            var obj = new ExtrinsicObject();
-
-            return obj;
-        }
-
-        private Classification GetAuthor(Author author, string parentObject, string classificationScheme)
-        {
-            var classification =  new Classification
-            {
-                ClassificationScheme = classificationScheme,
-                ClassifiedObject = parentObject,
-                Slots = new List<Slot>()
-            };
-
-            if (author.Person != null)
-                classification.Slots.Add(new Slot
-                {
-                    Name = "authorPerson",
-                    Values = new List<string> { author.Person.Hl7Person.Encode() }
-                });
-
-            if (author.Institution != null)
-                classification.Slots.Add(new Slot
-                {
-                    Name = "authorInstitution",
-                    Values = new List<string> { author.Institution.Hl7Organization.Encode() }
-                });
-
-            if (!string.IsNullOrEmpty(author.Role))
-                classification.Slots.Add(new Slot
-                {
-                    Name = "authorRole",
-                    Values = new List<string> { author.Role }
-                });
-
-            if (!string.IsNullOrEmpty(author.Specialty))
-                classification.Slots.Add(new Slot
-                {
-                    Name = "authorSpecialty",
-                    Values = new List<string> { author.Specialty }
-                });
-
-            return classification;
         }
     }
 }

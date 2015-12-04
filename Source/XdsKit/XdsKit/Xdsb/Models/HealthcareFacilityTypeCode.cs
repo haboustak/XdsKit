@@ -4,7 +4,7 @@
     {
         public HealthcareFacilityTypeCode()
         {
-            UniqueId = XdsClassification.HealthcareFacilityTypeCode;
+            Scheme = XdsClassification.DocumentHealthcareFacilityTypeCode;
         }
     }
 }

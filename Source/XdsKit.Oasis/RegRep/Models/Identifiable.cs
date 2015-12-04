@@ -14,6 +14,11 @@ namespace XdsKit.Oasis.RegRep.Models
         public string Home { get; set; }
 
         [XmlElement("Slot")]
-        public List<Slot> Slots { get; set; }         
+        public List<Slot> Slots { get; set; }
+
+        public Identifiable()
+        {
+            Slots = new List<Slot>();
+        }
     }
 }

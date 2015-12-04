@@ -4,7 +4,7 @@
     {
         public FormatCode()
         {
-            UniqueId = XdsClassification.FormatCode;
+            Scheme = XdsClassification.DocumentFormatCode;
         }
     }
 }

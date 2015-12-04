@@ -4,7 +4,7 @@
     {
         public EventCode()
         {
-            UniqueId = XdsClassification.EventCode;
+            Scheme = XdsClassification.DocumentEventCode;
         }
     }
 }

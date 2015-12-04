@@ -4,7 +4,7 @@
     {
         public DocumentTypeCode()
         {
-            UniqueId = XdsClassification.DocumentTypeCode;
+            Scheme = XdsClassification.DocumentTypeCode;
         }
     }
 }

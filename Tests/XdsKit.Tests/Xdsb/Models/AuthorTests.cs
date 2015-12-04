@@ -18,23 +18,27 @@ namespace XdsKit.Tests.Xdsb.Models
         {
             var author = new Author
             {
-                Institution = new XdsOrganization
+                Institution = new List<XdsOrganization>
                 {
-                    Name = "XdsKit.com",
-                    OrganizationId = "7764",
-                    UniversalId = "1.2.3.4.5"
+                    new XdsOrganization
+                    {
+                        Name = "XdsKit.com",
+                        OrganizationId = "7764",
+                        UniversalId = "1.2.3.4.5"
+                    }   
                 }
             };
-            Assert.AreEqual("XdsKit.com", author.Institution.Hl7Organization.OrganizationName.Value);
-            Assert.AreEqual("7764", author.Institution.Hl7Organization.OrganizationIdentifier.Value);
-            Assert.AreEqual("1.2.3.4.5", author.Institution.Hl7Organization.AssigningAuthority.UniversalId.Value);
-            Assert.AreEqual("ISO", author.Institution.Hl7Organization.AssigningAuthority.UniversalIdType.Value);
+            var institution = author.Institution.First();
+            Assert.AreEqual("XdsKit.com", institution.Hl7Organization.OrganizationName.Value);
+            Assert.AreEqual("7764", institution.Hl7Organization.OrganizationIdentifier.Value);
+            Assert.AreEqual("1.2.3.4.5", institution.Hl7Organization.AssigningAuthority.UniversalId.Value);
+            Assert.AreEqual("ISO", institution.Hl7Organization.AssigningAuthority.UniversalIdType.Value);
 
-            Assert.AreEqual(author.Institution.Name, author.Institution.Hl7Organization.OrganizationName.Value);
-            Assert.AreEqual(author.Institution.OrganizationId, author.Institution.Hl7Organization.OrganizationIdentifier.Value);
-            Assert.AreEqual(author.Institution.UniversalId, author.Institution.Hl7Organization.AssigningAuthority.UniversalId.Value);
+            Assert.AreEqual(institution.Name, institution.Hl7Organization.OrganizationName.Value);
+            Assert.AreEqual(institution.OrganizationId, institution.Hl7Organization.OrganizationIdentifier.Value);
+            Assert.AreEqual(institution.UniversalId, institution.Hl7Organization.AssigningAuthority.UniversalId.Value);
 
-            Assert.AreEqual("XdsKit.com^^^^^&1.2.3.4.5&ISO^^^^7764", author.Institution.Hl7Organization.Encode());
+            Assert.AreEqual("XdsKit.com^^^^^&1.2.3.4.5&ISO^^^^7764", institution.Hl7Organization.Encode());
         }
 
         [Test]
@@ -110,14 +114,17 @@ namespace XdsKit.Tests.Xdsb.Models
 
             var author = new Author
             {
-                Institution = new XdsOrganization(xon)
+                Institution = new List<XdsOrganization>
+                {
+                    new XdsOrganization(xon)
+                }
             };
 
-            Assert.AreEqual("XdsKit.com", author.Institution.Name);
-            Assert.AreEqual("7764", author.Institution.OrganizationId);
-            Assert.AreEqual("1.2.3.4.5", author.Institution.UniversalId);
+            Assert.AreEqual("XdsKit.com", author.Institution[0].Name);
+            Assert.AreEqual("7764", author.Institution[0].OrganizationId);
+            Assert.AreEqual("1.2.3.4.5", author.Institution[0].UniversalId);
 
-            Assert.AreEqual("XdsKit.com^^^^^&1.2.3.4.5&ISO^^^^7764", author.Institution.Hl7Organization.Encode());
+            Assert.AreEqual("XdsKit.com^^^^^&1.2.3.4.5&ISO^^^^7764", author.Institution[0].Hl7Organization.Encode());
         }
     }
 }

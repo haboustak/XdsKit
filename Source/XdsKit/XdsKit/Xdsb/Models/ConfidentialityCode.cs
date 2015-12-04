@@ -4,7 +4,7 @@
     {
         public ConfidentialityCode()
         {
-            UniqueId = XdsClassification.ConfidentialityCode;
+            Scheme = XdsClassification.DocumentConfidentialityCode;
         }
     }
 }

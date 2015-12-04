@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using XdsKit.Hl7.Datatypes;
+using XdsKit.Oasis.RegRep;
 using XdsKit.Oasis.RegRep.Models;
 
 namespace XdsKit.Xdsb.Models
 {
-    public class DocumentEntry : XdsEntry
+    public class DocumentEntry : XdsEntry<ExtrinsicObject>
     {
         private DTM _hl7CreationTime, _hl7ServiceStartTime, _hl7ServiceStopTime;
         private DateTimeOffset? _creationTime, _serviceStartTime, _serviceStopTime;
@@ -17,7 +19,7 @@ namespace XdsKit.Xdsb.Models
 
         public ClassCode Class { get; set; }
 
-        public ConfidentialityCode Confidentiality { get; set; }
+        public List<ConfidentialityCode> Confidentiality { get; set; }
 
         public DateTimeOffset? CreationTime
         {
@@ -46,11 +48,17 @@ namespace XdsKit.Xdsb.Models
 
         public XdsPerson LegalAuthenticator { get; set; }
 
+        public bool LimitedMetadata { get; set; }
+
         public string MimeType { get; set; }
+
+        public string DocumentEntryType { get; set; }
 
         public XdsIdentifier PatientId { get; set; }
 
         public PracticeSettingCode PracticeSetting { get; set; }
+
+        public List<XdsReferenceIdentifier> ReferenceIds { get; set; }
 
         public string RepositoryUniqueId { get; set; }
 
@@ -84,7 +92,7 @@ namespace XdsKit.Xdsb.Models
             }
         }
 
-        public int Size { get; set; }
+        public int? Size { get; set; }
 
         public XdsIdentifier SourcePatientId { get; set; }
 
@@ -109,11 +117,131 @@ namespace XdsKit.Xdsb.Models
             _creationTimePrecision = creationPrecision;
             _serviceStartTimePrecision = serviceStartTimePrecision;
             _serviceStopTimePrecision = serviceStopTimePrecision;
+
+            LimitedMetadata = false;
         }
 
-        public ExtrinsicObject ToXml()
+        public override ExtrinsicObject ToRegistryObject()
         {
-            var document = new ExtrinsicObject();
+            var document = new ExtrinsicObject
+            {
+                Id = EntryUuid,
+                Home = HomeCommunityId,
+                Status = AvailabilityStatus,
+                Description = XmlUtil.LocalString(Comments),
+                Name = XmlUtil.LocalString(Title),
+                MimeType = MimeType,
+                ObjectType = DocumentEntryType
+            };
+            document.Classifications.Add(new Classification
+            {
+                ClassificationScheme = XdsClassification.Document,
+                ClassifiedObject = EntryUuid,
+            });
+
+            if (Author != null)
+            {
+                var authorAttribute = Author.ToClassification(XdsClassification.DocumentAuthor, EntryUuid);
+                document.Classifications.Add(authorAttribute);
+            }
+            if (Class != null && !string.IsNullOrEmpty(Class.Value))
+                document.Classifications.Add(Class.ToClassification(EntryUuid));
+
+            if (Confidentiality != null && Confidentiality.Any(c => !string.IsNullOrEmpty(c.Value)))
+            {
+                document.Classifications.AddRange(
+                    Confidentiality.Select(c => c.ToClassification(EntryUuid)));
+            }
+            if (CreationTime != null)
+                document.Slots.Add(XmlUtil.SingleSlot("creationTime", _hl7CreationTime.Encode()));
+
+            if (EventCodes != null && EventCodes.Any(fc => !string.IsNullOrEmpty(fc.Value)))
+                document.Classifications.AddRange(EventCodes.Select(fc => fc.ToClassification(EntryUuid)));
+            
+            if (Format != null && !string.IsNullOrEmpty(Format.Value))
+                document.Classifications.Add(Format.ToClassification(EntryUuid));
+
+            if (!string.IsNullOrEmpty(Hash))
+                document.Slots.Add(XmlUtil.SingleSlot("hash", Hash));
+
+            if (HealthCareFacilityType != null && !string.IsNullOrEmpty(HealthCareFacilityType.Value))
+                document.Classifications.Add(HealthCareFacilityType.ToClassification(EntryUuid));
+
+            if (!string.IsNullOrEmpty(LanguageCode))
+                document.Slots.Add(XmlUtil.SingleSlot("languageCode", LanguageCode));
+            
+            if (LegalAuthenticator != null)
+                document.Slots.Add(XmlUtil.SingleSlot("legalAuthenticator", LegalAuthenticator.Hl7Person.Encode()));
+
+            string patientId = PatientId != null ? PatientId.ToString() : "";
+            if (!string.IsNullOrEmpty(patientId))
+            {
+                document.ExternalIdentifiers.Add(new ExternalIdentifier
+                {
+                    IdentificationScheme = XdsIdentification.DocumentPatientId,
+                    RegistryObject = EntryUuid,
+                    Name = XmlUtil.LocalString("XDSFolder.patientId"),
+                    Value = patientId
+                });
+            }
+
+            if (PracticeSetting != null && !string.IsNullOrEmpty(PracticeSetting.Value))
+                document.Classifications.Add(PracticeSetting.ToClassification(EntryUuid));
+
+            if (!string.IsNullOrEmpty(RepositoryUniqueId))
+                document.Slots.Add(XmlUtil.SingleSlot("repositoryUniqueId", RepositoryUniqueId));
+
+            if (ServiceStartTime != null)
+                document.Slots.Add(XmlUtil.SingleSlot("serviceStartTime", _hl7ServiceStartTime.Encode()));
+
+            if (ServiceStopTime != null)
+                document.Slots.Add(XmlUtil.SingleSlot("serviceStopTime", _hl7ServiceStopTime.Encode()));
+
+            if (Size != null)
+                document.Slots.Add(XmlUtil.SingleSlot("size", Size.Value.ToString()));
+
+            if (SourcePatientId != null)
+                document.Slots.Add(XmlUtil.SingleSlot("sourcePatientId", SourcePatientId.Hl7Identifier.Encode()));
+
+            if (SourcePatientInfo != null && SourcePatientInfo.Any())
+                document.Slots.Add(new Slot
+                {
+                    Name = "sourcePatientInfo",
+                    Values = SourcePatientInfo
+                });
+
+            if (Type != null)
+                document.Classifications.Add(Type.ToClassification(EntryUuid));
+
+            if (!string.IsNullOrEmpty(Uri))
+                document.Slots.Add(XmlUtil.SingleSlot("URI", Uri));
+
+            if (!string.IsNullOrEmpty(UniqueId))
+            {
+                document.ExternalIdentifiers.Add(new ExternalIdentifier
+                {
+                    IdentificationScheme = XdsIdentification.DocumentUniqueId,
+                    RegistryObject = EntryUuid,
+                    Name = XmlUtil.LocalString("XDSFolder.uniqueId"),
+                    Value = UniqueId
+                });
+            }
+            if (ReferenceIds != null && ReferenceIds.Any())
+            {
+                document.Slots.Add(new Slot
+                {
+                    Name = "urn:ihe:iti:xds:2013:referenceIdList",
+                    Values = ReferenceIds.Select(id => id.Hl7Identifier.Encode()).ToList()
+                });
+            }
+            if (LimitedMetadata)
+            {
+                document.Classifications.Add(new Classification
+                {
+                    ClassificationScheme = XdsClassification.DocumentLimitedMetadata,
+                    ClassifiedObject = EntryUuid
+                });
+            }
 
             return document;
         }
