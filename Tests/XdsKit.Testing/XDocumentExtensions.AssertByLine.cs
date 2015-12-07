@@ -4,7 +4,7 @@ using System.Xml.Linq;
 
 using NUnit.Framework;
 
-namespace XdsKit.Oasis.Tests
+namespace XdsKit
 {
     public static partial class XDocumentExtensions
     {

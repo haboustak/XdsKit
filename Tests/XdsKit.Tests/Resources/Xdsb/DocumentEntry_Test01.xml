@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ExtrinsicObject id="Document01" 
+                 home="1.2.3.4"
+                 objectType="urn:uuid:7edca82f-054d-47f2-a032-9b2a5b5186c1"
+                 status="urn:oasis:names:tc:ebxml-regrep:StatusType:Approved"
+                 mimeType="application/pdf"
+                 xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+  <Slot name="creationTime">
+    <ValueList>
+      <Value>20151204041100</Value>
+    </ValueList>
+  </Slot>
+  <Slot name="hash">
+    <ValueList>
+      <Value>da39a3ee5e6b4b0d3255bfef95601890afd80709</Value>
+    </ValueList>
+  </Slot>
+  <Slot name="languageCode">
+    <ValueList>
+      <Value>en-US</Value>
+    </ValueList>
+  </Slot>
+  <Slot name="legalAuthenticator">
+    <ValueList>
+      <Value>^&amp;&amp;XdsKit^Provider^^^Dr</Value>
+    </ValueList>
+  </Slot>
+  <Slot name="repositoryUniqueId">
+    <ValueList>
+      <Value>5.4.3.2.1.0</Value>
+    </ValueList>
+  </Slot>
+  <Slot name="serviceStartTime">
+    <ValueList>
+      <Value>20151204042700</Value>
+    </ValueList>
+  </Slot>
+  <Slot name="serviceStopTime">
+    <ValueList>
+      <Value>20151204054700</Value>
+    </ValueList>
+  </Slot>
+  <Slot name="size">
+    <ValueList>
+      <Value>1024</Value>
+    </ValueList>
+  </Slot>
+  <Slot name="sourcePatientId">
+    <ValueList>
+      <Value>SP00001102^^^&amp;0.1.2.3.4&amp;ISO</Value>
+    </ValueList>
+  </Slot>
+  <Slot name="sourcePatientInfo">
+    <ValueList>
+      <Value>PID-3|SP00001102^^^&amp;amp;0.1.2.3.4&amp;amp;ISO</Value>
+      <Value>PID-5|Patient^XdsKit</Value>
+      <Value>PID-7|1990011</Value>
+      <Value>PID-8|M</Value>
+      <Value>PID-11|123 Sesame Street^^New York^NY^11501</Value>
+    </ValueList>
+  </Slot>
+  <Slot name="URI">
+    <ValueList>
+      <Value>http://google.com</Value>
+    </ValueList>
+  </Slot>
+  <Slot name="urn:ihe:iti:xds:2013:referenceIdList">
+    <ValueList>
+      <Value>LB0001^^^&amp;1.2.3.4.5&amp;ISO^urn:ihe:iti:xds:2013:accession</Value>
+      <Value>DC0001^^^&amp;6.6.6&amp;ISO^urn:ihe:iti:xds:2013:uniqueId</Value>
+    </ValueList>
+  </Slot>
+  <Name>
+    <LocalizedString value="XdsKit Progress Note" />
+  </Name>
+  <Description>
+    <LocalizedString value="This is a new submission" />
+  </Description>
+  <Classification classificationScheme="urn:uuid:7edca82f-054d-47f2-a032-9b2a5b5186c1" classifiedObject="Document01" />
+  <Classification objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:93606bcf-9494-43ec-9b4e-a7748d1a838d" classifiedObject="Document01">
+    <Slot name="authorPerson">
+      <ValueList>
+        <Value>^&amp;&amp;XdsKit^First^^^Dr^MD</Value>
+      </ValueList>
+    </Slot>
+    <Slot name="authorInstitution">
+      <ValueList>
+        <Value>XdsKit Clinic^^^^^&amp;2.16.840.1.113883.4.6&amp;ISO^^^^1234567893</Value>
+        <Value>Radiology Department</Value>
+      </ValueList>
+    </Slot>
+    <Slot name="authorRole">
+      <ValueList>
+        <Value>Rendering</Value>
+        <Value>Attending</Value>
+      </ValueList>
+    </Slot>
+    <Slot name="authorSpecialty">
+      <ValueList>
+        <Value>Pediatrics</Value>
+        <Value>Cardiology</Value>
+      </ValueList>
+    </Slot>
+  </Classification>
+  <Classification objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:41a5887f-8865-4c09-adf7-e362475b143a" classifiedObject="Document01" nodeRepresentation="11506-3">
+    <Slot name="codingScheme">
+      <ValueList>
+        <Value>2.16.840.1.113883.6.1</Value>
+      </ValueList>
+    </Slot>
+    <Name>
+      <LocalizedString value="Progress Note" />
+    </Name>
+  </Classification>
+  <Classification objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:f4f85eac-e6cb-4883-b524-f2705394840f" classifiedObject="Document01" nodeRepresentation="N">
+    <Slot name="codingScheme">
+      <ValueList>
+        <Value>2.16.840.1.113883.5.25</Value>
+      </ValueList>
+    </Slot>
+    <Name>
+      <LocalizedString value="Normal" />
+    </Name>
+  </Classification>
+  <Classification objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:2c6b8cb7-8b2a-4051-b291-b1ae6a575ef4" classifiedObject="Document01" nodeRepresentation="1">
+    <Slot name="codingScheme">
+      <ValueList>
+        <Value>1.1.1.1.1</Value>
+      </ValueList>
+    </Slot>
+    <Name>
+      <LocalizedString value="First Event" />
+    </Name>
+  </Classification>
+  <Classification objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:2c6b8cb7-8b2a-4051-b291-b1ae6a575ef4" classifiedObject="Document01" nodeRepresentation="2">
+    <Slot name="codingScheme">
+      <ValueList>
+        <Value>1.2.1.2.1</Value>
+      </ValueList>
+    </Slot>
+    <Name>
+      <LocalizedString value="Second Event" />
+    </Name>
+  </Classification>
+  <Classification objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:a09d5840-386c-46f2-b5ad-9c3699a4309d" classifiedObject="Document01" nodeRepresentation="urn:ihe:pcc:xds-ms:2007">
+    <Slot name="codingScheme">
+      <ValueList>
+        <Value>1.3.6.1.4.1.19376.1.2.3</Value>
+      </ValueList>
+    </Slot>
+    <Name>
+      <LocalizedString value="Medical Summaries (XDS-MS)" />
+    </Name>
+  </Classification>
+  <Classification objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:f33fb8ac-18af-42cc-ae0e-ed0b0bdb91e1" classifiedObject="Document01" nodeRepresentation="FC01">
+    <Slot name="codingScheme">
+      <ValueList>
+        <Value>1.2.3.4.5.6.123</Value>
+      </ValueList>
+    </Slot>
+    <Name>
+      <LocalizedString value="Hospital" />
+    </Name>
+  </Classification>
+  <Classification objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:cccf5598-8b07-4b77-a05e-ae952c785ead" classifiedObject="Document01" nodeRepresentation="PS01">
+    <Slot name="codingScheme">
+      <ValueList>
+        <Value>1.2.3.4.5.6</Value>
+      </ValueList>
+    </Slot>
+    <Name>
+      <LocalizedString value="Practice Setting" />
+    </Name>
+  </Classification>
+  <Classification objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:f0306f51-975f-434e-a61c-c59651d33983" classifiedObject="Document01" nodeRepresentation="NOTE">
+    <Name>
+      <LocalizedString value="Progress Note" />
+    </Name>
+  </Classification>
+  <Classification classificationScheme="urn:uuid:ab9b591b-83ab-4d03-8f5d-f93b1fb92e85" classifiedObject="Document01" />
+  <ExternalIdentifier identificationScheme="urn:uuid:58a6f841-87b3-4a3e-92fd-a8ffeff98427" registryObject="Document01" value="XYZPAT01^^^&amp;9.0.1.2.3&amp;ISO">
+    <Name>
+      <LocalizedString value="XDSFolder.patientId" />
+    </Name>
+  </ExternalIdentifier>
+  <ExternalIdentifier identificationScheme="urn:uuid:2e82c1f6-a085-4c72-9da3-8640a32e42ab" registryObject="Document01" value="1.2.3.4.5.6.78901.2345.6.7">
+    <Name>
+      <LocalizedString value="XDSFolder.uniqueId" />
+    </Name>
+  </ExternalIdentifier>
+</ExtrinsicObject>

@@ -30,5 +30,11 @@ namespace XdsKit.Oasis.RegRep.Models
         [XmlAttribute("status", DataType = "anyURI")]
         public string Status { get; set; }
 
+        public RegistryObject()
+        {
+            Classifications = new List<Classification>();
+            ExternalIdentifiers = new List<ExternalIdentifier>();
+        }
+
     }
 }

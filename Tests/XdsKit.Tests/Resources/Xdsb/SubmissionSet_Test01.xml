@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RegistryPackage id="Submission01" 
+                 home="urn:oid:1.1.1.1.1.2" 
+                 status="urn:oasis:names:tc:ebxml-regrep:StatusType:Approved" 
+                 xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+  <Slot name="intendedRecipient">
+    <ValueList>
+      <Value>XdsKit Hospital^^^^^&amp;2.16.840.1.113883.4.6&amp;ISO^^^^1234567893|^&amp;&amp;XdsKit^Specialist^^^Dr^MD</Value>
+      <Value>XdsKit Cardiology Care^^^^^&amp;2.16.840.1.113883.4.6&amp;ISO^^^^1234567893|^&amp;&amp;XdsKit^Cariologist^^^Dr^MD</Value>
+    </ValueList>
+  </Slot>
+  <Slot name="submissionTime">
+    <ValueList>
+      <Value>20151204042100</Value>
+    </ValueList>
+  </Slot>
+  <Name>
+    <LocalizedString value="SubmissionSet Title" />
+  </Name>
+  <Description>
+    <LocalizedString value="This is a new submission" />
+  </Description>
+  <Classification classificationScheme="urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd" classifiedObject="Submission01" />
+  <Classification objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:a7058bb9-b4e4-4307-ba5b-e3f0ab85e12d" classifiedObject="Submission01">
+    <Slot name="authorPerson">
+      <ValueList>
+        <Value>^&amp;&amp;XdsKit^First^^^Dr^MD</Value>
+      </ValueList>
+    </Slot>
+    <Slot name="authorInstitution">
+      <ValueList>
+        <Value>XdsKit Clinic^^^^^&amp;2.16.840.1.113883.4.6&amp;ISO^^^^1234567893</Value>
+        <Value>Radiology Department</Value>
+      </ValueList>
+    </Slot>
+    <Slot name="authorRole">
+      <ValueList>
+        <Value>Rendering</Value>
+        <Value>Attending</Value>
+      </ValueList>
+    </Slot>
+    <Slot name="authorSpecialty">
+      <ValueList>
+        <Value>Pediatrics</Value>
+        <Value>Cardiology</Value>
+      </ValueList>
+    </Slot>
+  </Classification>
+  <Classification objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:aa543740-bdda-424e-8c96-df4873be8500" classifiedObject="Submission01" nodeRepresentation="application/pdf">
+    <Name>
+      <LocalizedString value="Pdf" />
+    </Name>
+  </Classification>
+  <ExternalIdentifier identificationScheme="urn:uuid:6b5aea1a-874d-4603-a4bc-96a0a7b38446" registryObject="Submission01" value="XYZPAT01^^^&amp;9.0.1.2.3&amp;ISO">
+    <Name>
+      <LocalizedString value="XDSSubmissionSet.patientId" />
+    </Name>
+  </ExternalIdentifier>
+  <ExternalIdentifier identificationScheme="urn:uuid:96fdda7c-d067-4183-912e-bf5ee74998a8" registryObject="Submission01" value="3.4.2.2.2">
+    <Name>
+      <LocalizedString value="XDSSubmissionSet.sourceId" />
+    </Name>
+  </ExternalIdentifier>
+</RegistryPackage>

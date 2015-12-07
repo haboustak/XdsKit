@@ -45,7 +45,6 @@
     <Compile Include="..\..\VersionAssemblyInfo.cs">
       <Link>Properties\VersionAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Namespaces.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegRep\AssociationType.cs" />
     <Compile Include="RegRep\DeletionScope.cs" />
@@ -85,6 +84,7 @@
     <Compile Include="RegRep\Models\User.cs" />
     <Compile Include="RegRep\Models\ValueList.cs" />
     <Compile Include="RegRep\Models\VersionInfo.cs" />
+    <Compile Include="RegRep\ObjectType.cs" />
     <Compile Include="RegRep\Protocols\RegistryError.cs" />
     <Compile Include="RegRep\Protocols\RegistryErrorList.cs" />
     <Compile Include="RegRep\ErrorSeverity.cs" />
@@ -105,6 +105,8 @@
     <Compile Include="RegRep\Services\SubmitObjectsRequest.cs" />
     <Compile Include="RegRep\Services\UndeprecateObjectsRequest.cs" />
     <Compile Include="RegRep\Services\UpdateObjectsRequest.cs" />
+    <Compile Include="RegRep\StatusType.cs" />
+    <Compile Include="RegRep\XmlUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Schema\cms.xsd">
@@ -124,9 +126,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XdsKit\XdsKit.csproj">
+    <ProjectReference Include="..\XdsKit.Shared\XdsKit.Shared.csproj">
       <Project>{996a1073-c348-43e4-aaa3-37cd6f08da6d}</Project>
-      <Name>XdsKit</Name>
+      <Name>XdsKit.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

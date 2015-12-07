@@ -2,7 +2,7 @@
 using System.Xml.Linq;
 
 using NUnit.Framework;
-
+using XdsKit.Oasis.RegRep;
 using XdsKit.Oasis.RegRep.Models;
 
 namespace XdsKit.Oasis.Tests.Resources

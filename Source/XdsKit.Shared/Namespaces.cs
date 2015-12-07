@@ -7,6 +7,9 @@
         public const string Rs = "urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0";
         public const string Cms = "urn:oasis:names:tc:ebxml-regrep:xsd:cms:3.0";
         public const string Query = "urn:oasis:names:tc:ebxml-regrep:xsd:query:3.0";
+
         public const string Xml = "http://www.w3.org/XML/1998/namespace";
+
+        public const string Xdsb = "urn:ihe:iti:xds-b:2007";
     }
 }

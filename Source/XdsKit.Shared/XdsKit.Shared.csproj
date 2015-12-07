@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XdsKit</RootNamespace>
-    <AssemblyName>XdsKit</AssemblyName>
+    <AssemblyName>XdsKit.Shared</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,16 +39,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\ProductAssemblyInfo.cs">
+      <Link>Properties\ProductAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\VersionAssemblyInfo.cs">
+      <Link>Properties\VersionAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Extensions\ObjectExtensions.DeepEquals.cs" />
     <Compile Include="Extensions\ObjectExtensions.XmlRoot.cs" />
     <Compile Include="Extensions\StringExtensions.FromXml.cs" />
     <Compile Include="Extensions\ObjectExtensions.ToXml.cs" />
     <Compile Include="Extensions\XDocumentExtensions.Normalize.cs" />
+    <Compile Include="Namespaces.cs" />
     <Compile Include="UriEnumeration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\StringExtensions.AsTimeSpan.cs" />
     <Compile Include="Extensions\StringExtensions.Specified.cs" />
     <Compile Include="Extensions\TypeExtensions.XmlRoot.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\StringExtensions.ConvertTo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
